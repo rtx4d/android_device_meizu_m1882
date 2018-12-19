@@ -13,6 +13,7 @@ ifndef BOARD_VNDK_VERSION
 # However, some of those libs need FWK-ONLY libs, which must be listed here
 # manually.
 VNDK_SP_LIBRARIES := \
+    libdexfile_external \
     libdexfile_support \
     libziparchive
 
