@@ -688,7 +688,6 @@ service diag_mdlog_stop /system/vendor/bin/diag_mdlog -k
 
 on charger
     setprop persist.sys.usb.config mass_storage
-    load_system_props
     start qcom-post-boot
 
 on property:init.svc.surfaceflinger=restarting
