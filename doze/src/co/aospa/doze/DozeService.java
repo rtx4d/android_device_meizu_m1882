@@ -23,22 +23,40 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.FileUtils;
+import android.os.Looper;
 import android.util.Log;
+
+import java.io.IOException;
 
 public class DozeService extends Service {
     private static final String TAG = "DozeService";
     private static final boolean DEBUG = false;
 
+    private static final long AOD_DELAY_MS = 1000;
+
     private PickupSensor mPickupSensor;
     private ProximitySensor mProximitySensor;
+
+    private Handler mHandler = new Handler(Looper.getMainLooper());
+
+    private boolean mInPickupSensor = false;
+    private boolean mInProximitySensor = false;
 
     @Override
     public void onCreate() {
         if (DEBUG) Log.d(TAG, "Creating service");
-        mPickupSensor = new PickupSensor(this);
-        mProximitySensor = new ProximitySensor(this);
-
+        if (DozeUtils.isPickUpEnabled(this)) {
+            mPickupSensor = new PickupSensor(this);
+            mInPickupSensor = true;
+        }
+        if (DozeUtils.isHandwaveGestureEnabled(this) ||
+                DozeUtils.isPocketGestureEnabled(this)) {
+            mProximitySensor = new ProximitySensor(this);
+            mInProximitySensor = true;
+        }
         IntentFilter screenStateFilter = new IntentFilter();
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON);
         screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -56,8 +74,12 @@ public class DozeService extends Service {
         if (DEBUG) Log.d(TAG, "Destroying service");
         super.onDestroy();
         this.unregisterReceiver(mScreenStateReceiver);
-        mPickupSensor.disable();
-        mProximitySensor.disable();
+        if (mInPickupSensor) {
+            mPickupSensor.disable();
+        }
+        if (mInProximitySensor) {
+            mProximitySensor.disable();
+        }
     }
 
     @Override
@@ -74,6 +96,9 @@ public class DozeService extends Service {
                 DozeUtils.isPocketGestureEnabled(this)) {
             mProximitySensor.disable();
         }
+        if (DozeUtils.isAlwaysOnEnabled(this)) {
+            mHandler.removeCallbacksAndMessages(null);
+        }
     }
 
     private void onDisplayOff() {
@@ -84,6 +109,19 @@ public class DozeService extends Service {
         if (DozeUtils.isHandwaveGestureEnabled(this) ||
                 DozeUtils.isPocketGestureEnabled(this)) {
             mProximitySensor.enable();
+        }
+        if (DozeUtils.isAlwaysOnEnabled(this)) {
+            mHandler.postDelayed(() -> {
+                joinAOD();
+            }, AOD_DELAY_MS);
+        }
+    }
+
+    private void joinAOD() {
+        try {
+            FileUtils.stringToFile("/sys/class/meizu/lcm/display/doze_s2", "1");
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to rejoin AOD");
         }
     }
 
