@@ -21,3 +21,6 @@ ro.meizu_ifaa_support=1
 ro.meizu_soter_support=1
 ro.vendor.meizu_no_vts=1
 ro.product.flyme.model=M1882
+
+# Dex2oat
+dalvik.vm.dex2oat64.enabled=true
