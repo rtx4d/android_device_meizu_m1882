@@ -180,5 +180,11 @@ WIFI_DRIVER_MODULE_PATH := "/vendor/lib/modules/qca_cld3_wlan.ko"
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
+# NFC 
+TARGET_USES_NQ_NFC := false
+
+# FM
+BOARD_HAVE_QCOM_FM := false
+
 # inherit from the proprietary version
 -include vendor/meizu/sdm845-common/BoardConfigVendor.mk
