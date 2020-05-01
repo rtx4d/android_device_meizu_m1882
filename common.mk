@@ -209,6 +209,10 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.1 \
     libandroid_net \
     netutils-wrapper-1.0
+	
+# Parts
+PRODUCT_PACKAGES += \
+    MeizuParts
 
 # Power
 PRODUCT_PACKAGES += \
