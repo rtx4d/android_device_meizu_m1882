@@ -12,7 +12,7 @@ PRODUCT_PACKAGE_OVERLAYS +=  $(LOCAL_PATH)/overlay-product
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-sdm845
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-mokee
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 # Properties
 -include $(LOCAL_PATH)/vendor_prop.mk
@@ -49,7 +49,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
-    vendor/mokee/config/permissions/vendor.mokee.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/vendor.mokee.biometrics.fingerprint.inscreen.xml
+    vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
@@ -131,7 +131,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1 \
-    vendor.mokee.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -190,8 +190,8 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.mokee.livedisplay@2.0-init.sh \
-    vendor.mokee.livedisplay@2.0-service.meizu_sdm845
+    vendor.lineage.livedisplay@2.0-init.sh \
+    vendor.lineage.livedisplay@2.0-service.meizu_sdm845
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -265,7 +265,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.mokee.touch@1.0-service.meizu_sdm845
+    vendor.lineage.touch@1.0-service.meizu_sdm845
 
 # USB
 PRODUCT_PACKAGES += \

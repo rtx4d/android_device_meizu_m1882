@@ -5,9 +5,9 @@
 //
 
 cc_binary {
-    name: "vendor.mokee.touch@1.0-service.meizu_sdm845",
-    vintf_fragments: ["vendor.mokee.touch@1.0-service.meizu_sdm845.xml"],
-    init_rc: ["vendor.mokee.touch@1.0-service.meizu_sdm845.rc"],
+    name: "vendor.lineage.touch@1.0-service.meizu_sdm845",
+    vintf_fragments: ["vendor.lineage.touch@1.0-service.meizu_sdm845.xml"],
+    init_rc: ["vendor.lineage.touch@1.0-service.meizu_sdm845.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,
@@ -22,6 +22,6 @@ cc_binary {
         "libhidlbase",
         "libhidltransport",
         "libutils",
-        "vendor.mokee.touch@1.0",
+        "vendor.lineage.touch@1.0",
     ],
 }

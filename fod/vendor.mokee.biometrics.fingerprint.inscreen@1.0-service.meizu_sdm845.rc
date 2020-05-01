@@ -1,6 +1,0 @@
-service vendor.fingerprint-inscreen-1-0-meizu_sdm845 /vendor/bin/hw/vendor.mokee.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845
-    interface vendor.mokee.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
-    class hal
-    user system
-    group system
-    shutdown critical

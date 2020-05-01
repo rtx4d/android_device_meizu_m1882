@@ -9,9 +9,9 @@ cc_binary {
     relative_install_path: "hw",
     vendor: true,
     defaults: ["hidl_defaults"],
-    name: "vendor.mokee.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845",
-    vintf_fragments: ["vendor.mokee.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845.xml"],
-    init_rc: ["vendor.mokee.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845.rc"],
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845",
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845.xml"],
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845.rc"],
     srcs: [
         "service.cpp",
         "FingerprintInscreen.cpp",
@@ -26,7 +26,7 @@ cc_binary {
         "libhwbinder",
         "libutils",
         "libcutils",
-        "vendor.mokee.biometrics.fingerprint.inscreen@1.0",
+        "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
         "vendor.synaptics.fingerprint.interfaces.extensions@1.0",
     ],
 }

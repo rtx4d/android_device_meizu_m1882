@@ -5,15 +5,15 @@
  *
  */
 
-#define LOG_TAG "vendor.mokee.touch@1.0-service.meizu_sdm845"
+#define LOG_TAG "vendor.lineage.touch@1.0-service.meizu_sdm845"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
 #include "TouchscreenGesture.h"
 
-using ::vendor::mokee::touch::V1_0::ITouchscreenGesture;
-using ::vendor::mokee::touch::V1_0::implementation::TouchscreenGesture;
+using ::vendor::lineage::touch::V1_0::ITouchscreenGesture;
+using ::vendor::lineage::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
     android::sp<ITouchscreenGesture> service = new TouchscreenGesture();

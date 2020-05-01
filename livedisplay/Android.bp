@@ -6,9 +6,9 @@
 //
 
 cc_binary {
-    name: "vendor.mokee.livedisplay@2.0-service.meizu_sdm845",
-    vintf_fragments: ["vendor.mokee.livedisplay@2.0-service.meizu_sdm845.xml"],
-    init_rc: ["vendor.mokee.livedisplay@2.0-service.meizu_sdm845.rc"],
+    name: "vendor.lineage.livedisplay@2.0-service.meizu_sdm845",
+    vintf_fragments: ["vendor.lineage.livedisplay@2.0-service.meizu_sdm845.xml"],
+    init_rc: ["vendor.lineage.livedisplay@2.0-service.meizu_sdm845.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,
@@ -27,6 +27,6 @@ cc_binary {
         "libhidlbase",
         "libhidltransport",
         "libutils",
-        "vendor.mokee.livedisplay@2.0",
+        "vendor.lineage.livedisplay@2.0",
     ],
 }

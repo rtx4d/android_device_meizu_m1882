@@ -5,13 +5,13 @@
  *
  */
 
-#ifndef VENDOR_MOKEE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
-#define VENDOR_MOKEE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
+#ifndef VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
+#define VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
 
 #include <vendor/synaptics/fingerprint/interfaces/extensions/1.0/IStellerClientCallback.h>
 
 namespace vendor {
-namespace mokee {
+namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
@@ -36,7 +36,7 @@ class StellerClientCallback : public IStellerClientCallback {
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
-}  // namespace mokee
+}  // namespace lineage
 }  // namespace vendor
 
-#endif  // VENDOR_MOKEE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
+#endif  // VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
