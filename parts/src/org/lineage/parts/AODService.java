@@ -5,7 +5,7 @@
  *
  */
 
-package org.lineage.device.parts;
+package org.mokee.device.parts;
 
 import android.app.Service;
 import android.content.Intent;
@@ -14,22 +14,18 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
-import org.lineage.internal.util.FileUtils;
-
 public class AODService extends Service {
 
     private static final String TAG = "AODService";
     private static final boolean DEBUG = false;
 
-    private static final long AOD_DELAY_MS = 200;
-    private static final long BRIGHTNESS_RESET_DELAY_MS = 500;
+    private static final long AOD_DELAY_MS = 1000;
 
     private SettingObserver mSettingObserver;
     private ScreenReceiver mScreenReceiver;
 
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private boolean mInteractive = true;
-    private boolean mAodEnabled = false;
 
     @Override
     public void onCreate() {
@@ -80,29 +76,15 @@ public class AODService extends Service {
         Log.d(TAG, "Device interactive");
         mInteractive = true;
         mHandler.removeCallbacksAndMessages(null);
-        if (mAodEnabled) {
-            Log.d(TAG, "Exit AOD");
-            FileUtils.writeLine(Constants.AOD_ENABLE, "0");
-            mAodEnabled = false;
-        }
-        mHandler.postDelayed(() -> {
-            if (mInteractive) {
-                final String brightness = FileUtils.readOneLine(Constants.BRIGHTNESS);
-                Log.d(TAG, "Kick up brightness: " + brightness);
-                FileUtils.writeLine(Constants.BRIGHTNESS, brightness);
-            }
-        }, BRIGHTNESS_RESET_DELAY_MS);
     }
 
     void onDisplayOff() {
         Log.d(TAG, "Device non-interactive");
         mInteractive = false;
-        mHandler.removeCallbacksAndMessages(null);
         mHandler.postDelayed(() -> {
             if (!mInteractive) {
                 Log.d(TAG, "Trigger AOD");
-                FileUtils.writeLine(Constants.AOD_ENABLE, "1");
-                mAodEnabled = true;
+                Utils.enterAOD();
             }
         }, AOD_DELAY_MS);
     }

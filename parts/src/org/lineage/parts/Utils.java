@@ -12,6 +12,8 @@ import android.provider.Settings;
 
 import com.android.internal.R;
 
+import org.lineage.internal.util.FileUtils;
+
 class Utils {
 
     static boolean isAODEnabled(Context context) {
@@ -21,6 +23,10 @@ class Utils {
         return Settings.Secure.getInt(context.getContentResolver(),
                 Settings.Secure.DOZE_ALWAYS_ON,
                 alwaysOnByDefault ? 1 : 0) != 0;
+    }
+
+    static void enterAOD() {
+        FileUtils.writeLine("/sys/class/meizu/lcm/display/doze_s2", "0");
     }
 
 }
