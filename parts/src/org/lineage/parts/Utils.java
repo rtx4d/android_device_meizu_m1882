@@ -5,14 +5,14 @@
  *
  */
 
-package org.lineage.device.parts;
+package org.lineageos.device.parts;
 
 import android.content.Context;
 import android.provider.Settings;
 
 import com.android.internal.R;
 
-import org.lineage.internal.util.FileUtils;
+import org.lineageos.internal.util.FileUtils;
 
 class Utils {
 
@@ -28,5 +28,10 @@ class Utils {
     static void enterAOD() {
         FileUtils.writeLine("/sys/class/meizu/lcm/display/doze_s2", "0");
     }
+
+    static void exitAOD() {
+        FileUtils.writeLine("/sys/class/meizu/lcm/display/aod", "0");
+    }
+
 
 }
