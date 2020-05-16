@@ -178,6 +178,16 @@ persist.backup.ntpServer="0.pool.ntp.org"
 # iop.enable_uxe=1
 iop.enable_prefetch_ofr=1
 
+#add volte assert for m1882
+persist.dbg.ims_volte_enable=1
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+persist.radio.rat_on=combine
+persist.radio.data_ltd_sys_ind=1
+persist.radio.data_con_rprt=1
+persist.radio.calls.on.ims=1
+
 # Property to enable app trigger
 ro.vendor.at_library=libqti-at.so
 persist.vendor.qti.games.gt.prof=1
