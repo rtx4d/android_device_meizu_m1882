@@ -48,7 +48,7 @@ TARGET_KERNEL_CONFIG := sdm845-perf_defconfig
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
-BUILD_WITHOUT_VENDOR := true
+#BUILD_WITHOUT_VENDOR := true #Prevent splashloop
 TARGET_BOARD_PLATFORM := sdm845
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
