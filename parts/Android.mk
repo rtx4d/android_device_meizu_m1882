@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2020 The MoKee Open Source Project
+# Copyright (C) 2017-2020 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -17,9 +17,18 @@ LOCAL_CERTIFICATE := platform
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_PRIVILEGED_MODULE := true
 
-LOCAL_STATIC_JAVA_LIBRARIES := \
-    org.lineageos.platform.internal
+LOCAL_USE_AAPT2 := true
+
+LOCAL_STATIC_ANDROID_LIBRARIES := \
+    androidx.core_core \
+    androidx.preference_preference
+
+LOCAL_RESOURCE_DIR := \
+    $(LOCAL_PATH)/res \
+    $(TOP)/packages/resources/devicesettings/res
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+
+include frameworks/base/packages/SettingsLib/common.mk
 
 include $(BUILD_PACKAGE)
