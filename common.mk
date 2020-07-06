@@ -116,7 +116,9 @@ PRODUCT_PACKAGES += \
     libdrm.vendor \
     libqdMetaData.system \
     libtinyxml \
-    libvulkan
+    libvulkan \
+    vendor.display.config@1.7 \
+    vendor.display.config@1.7.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -308,3 +310,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     MeizuPocketMode
 
+PRODUCT_PACKAGES += \
+    libnl \
+    libaacwrapper
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
