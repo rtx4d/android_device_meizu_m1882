@@ -8,6 +8,7 @@ $(call inherit-product, vendor/meizu/sdm845-common/sdm845-common-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-device
+
 PRODUCT_PACKAGE_OVERLAYS +=  $(LOCAL_PATH)/overlay-product
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-sdm845
@@ -316,3 +317,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+#FOD specific of crDroid
+EXTRA_FOD_ANIMATIONS := true
+TARGET_HAS_FOD := true
