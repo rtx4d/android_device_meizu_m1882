@@ -123,11 +123,7 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
 }
 
 Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
-    int brightness = get(BRIGHTNESS_PATH, 0);
-    float alpha = 1.0 - pow(brightness / 1023.0f, 0.455);
-    float min = (float) property_get_int32("fod.dimming.min", 0);
-    float max = (float) property_get_int32("fod.dimming.max", 255);
-    return min + (max - min) * alpha;
+    return 0;
 }
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {
