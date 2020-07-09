@@ -186,8 +186,5 @@ TARGET_USES_NQ_NFC := false
 # FM
 BOARD_HAVE_QCOM_FM := false
 
-# FOD
-TARGET_SURFACEFLINGER_FOD_LIB := //device/meizu/sdm845-common:libfod_extension.meizu_sdm845
-
 # inherit from the proprietary version
 -include vendor/meizu/sdm845-common/BoardConfigVendor.mk
