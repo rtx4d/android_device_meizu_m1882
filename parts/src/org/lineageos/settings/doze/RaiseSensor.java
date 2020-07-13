@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- *               2017-2018 The LineageOS Project
+ *               2017-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,12 +29,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class TiltSensor implements SensorEventListener {
+public class RaiseSensor implements SensorEventListener {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = "TiltSensor";
+    private static final String TAG = "RaiseSensor";
 
-    private static final int MIN_PULSE_INTERVAL_MS = 700;
+    private static final int MIN_PULSE_INTERVAL_MS = 2500;
 
     private SensorManager mSensorManager;
     private Sensor mSensor;
@@ -43,10 +43,10 @@ public class TiltSensor implements SensorEventListener {
 
     private long mEntryTimestamp;
 
-    public TiltSensor(Context context) {
+    public RaiseSensor(Context context) {
         mContext = context;
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
+        mSensor = DozeUtils.getSensor(mSensorManager, "com.meizu.sensor.raise");
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -61,11 +61,11 @@ public class TiltSensor implements SensorEventListener {
         long delta = SystemClock.elapsedRealtime() - mEntryTimestamp;
         if (delta < MIN_PULSE_INTERVAL_MS) {
             return;
-        } else {
-            mEntryTimestamp = SystemClock.elapsedRealtime();
         }
+        
+        mEntryTimestamp = SystemClock.elapsedRealtime();
 
-        if (event.values[0] == 1) {
+        if (event.values[0] >= 0) {
             DozeUtils.launchDozePulse(mContext);
         }
     }
