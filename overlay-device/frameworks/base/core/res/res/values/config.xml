@@ -151,49 +151,64 @@
     <bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
-         The N entries of this array define N + 1 control points as follows:
-         (1-based arrays)
-
-         Point 1:            (0, value[1]):             lux <= 0
-         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
-         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
+         The N entries of this array define N  1 zones as follows:
+         Zone 0:        0 <= LUX < array[0]
+         Zone 1:        array[0] <= LUX < array[1]
          ...
-         Point N+1: (level[N], value[N+1]):  level[N] < lux
-
-         The control points must be strictly increasing.  Each control point
-         corresponds to an entry in the brightness backlight values arrays.
-         For example, if LUX == level[1] (first element of the levels array)
-         then the brightness will be determined by value[2] (second element
-         of the brightness values array).
-
-         Spline interpolation is used to determine the auto-brightness
-         backlight values for LUX levels between these control points.
-
+         Zone N:        array[N - 1] <= LUX < array[N]
+         Zone N + 1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>10</item>
-        <item>30</item>
+        <item>3</item>
+        <item>8</item>
+        <item>15</item>
+        <item>25</item>
+        <item>35</item>
+        <item>45</item>
         <item>60</item>
+        <item>80</item>
         <item>100</item>
-        <item>150</item>
-        <item>210</item>
-        <item>255</item>
+        <item>125</item>
+        <item>155</item>
+        <item>170</item>
+        <item>200</item>
+        <item>225</item>
+        <item>285</item>
+        <item>340</item>
+        <item>425</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
-         The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>10</item>
-        <item>20</item>
-        <item>40</item>
-        <item>70</item>
-        <item>110</item>
-        <item>160</item>
-        <item>200</item>
-        <item>255</item>
+        <item>5</item>   <!-- 0-3 -->
+        <item>11</item>   <!-- 3-8 -->
+        <item>16</item>   <!-- 8-15 -->
+        <item>27</item>   <!-- 15-25 -->
+        <item>37</item>   <!-- 25-35 -->
+        <item>47</item>   <!-- 35-45 -->
+        <item>59</item>   <!-- 45-60 -->
+        <item>71</item>   <!-- 60-80 -->
+        <item>85</item>   <!-- 80-100 -->
+        <item>102</item>   <!-- 100-125 -->
+        <item>120</item>   <!-- 125-155 -->
+        <item>150</item>   <!-- 155-170 -->
+        <item>175</item>   <!-- 170-200 -->
+        <item>205</item>   <!-- 200-225 -->
+        <item>255</item>   <!-- 225-285 -->
+        <item>310</item>   <!-- 285-340 -->
+        <item>370</item>   <!-- 340-425 -->
+        <item>495</item>   <!-- 425-500 -->
+        <item>590</item>   <!-- 500-1000 -->
+        <item>700</item>   <!-- 1000-2000 -->
+        <item>850</item>  <!-- 2000-3000 -->
+        <item>1023</item>  <!-- 3000+ -->
     </integer-array>
 
     <!-- MMS user agent string -->
