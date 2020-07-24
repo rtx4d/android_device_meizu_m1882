@@ -18,8 +18,13 @@
 #include <cmath>
 #include <thread>
 
+//#define NOTIFY_AUTH_TYPE 7
 #define NOTIFY_FINGER_DETECTED 1
 #define NOTIFY_FINGER_REMOVED 2
+#define NOTIFY_HBM_OFF 6
+#define NOTIFY_HBM_ON 5
+//#define NOTIFY_SCREEN_OFF 4
+#define NOTIFY_SCREEN_ON 3
 
 #define BOOST_ENABLE_PATH "/sys/class/meizu/fp/qos_set"
 #define HBM_ENABLE_PATH "/sys/class/meizu/lcm/display/hbm"
@@ -84,8 +89,10 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 
 Return<void> FingerprintInscreen::onPress() {
     mFingerPressed = true;
+    notifyHal(NOTIFY_SCREEN_ON, 0);
     set(BOOST_ENABLE_PATH, 1);
     set(HBM_ENABLE_PATH, 1);
+    notifyHal(NOTIFY_HBM_ON, 0);
     std::thread([this]() {
         std::this_thread::sleep_for(std::chrono::milliseconds(150));
         if (mFingerPressed) {
@@ -98,6 +105,7 @@ Return<void> FingerprintInscreen::onPress() {
 Return<void> FingerprintInscreen::onRelease() {
     mFingerPressed = false;
     set(HBM_ENABLE_PATH, 0);
+    notifyHal(NOTIFY_HBM_OFF, 0);
     notifyHal(NOTIFY_FINGER_REMOVED, 0);
     return Void();
 }
