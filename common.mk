@@ -117,9 +117,7 @@ PRODUCT_PACKAGES += \
     libdrm.vendor \
     libqdMetaData.system \
     libtinyxml \
-    libvulkan \
-    vendor.display.config@1.7 \
-    vendor.display.config@1.7.vendor
+    libvulkan
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -310,13 +308,6 @@ PRODUCT_COPY_FILES += \
 #PocketMode
 PRODUCT_PACKAGES += \
     MeizuPocketMode
-
-PRODUCT_PACKAGES += \
-    libnl \
-    libaacwrapper
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon
 
 #FOD specific of crDroid
 EXTRA_FOD_ANIMATIONS := true
