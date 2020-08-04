@@ -26,7 +26,6 @@
 //#define NOTIFY_SCREEN_OFF 4
 #define NOTIFY_SCREEN_ON 3
 
-#define BOOST_ENABLE_PATH "/sys/class/meizu/fp/qos_set"
 #define HBM_ENABLE_PATH "/sys/class/meizu/lcm/display/hbm"
 #define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness"
 
@@ -90,7 +89,6 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 Return<void> FingerprintInscreen::onPress() {
     mFingerPressed = true;
     notifyHal(NOTIFY_SCREEN_ON, 0);
-    set(BOOST_ENABLE_PATH, 1);
     set(HBM_ENABLE_PATH, 1);
     notifyHal(NOTIFY_HBM_ON, 0);
     std::thread([this]() {
