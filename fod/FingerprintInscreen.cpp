@@ -90,11 +90,11 @@ Return<void> FingerprintInscreen::onPress() {
     mFingerPressed = true;
     notifyHal(NOTIFY_SCREEN_ON, 0);
     set(HBM_ENABLE_PATH, 1);
-    notifyHal(NOTIFY_HBM_ON, 0);
     std::thread([this]() {
         std::this_thread::sleep_for(std::chrono::milliseconds(150));
         if (mFingerPressed) {
             notifyHal(NOTIFY_FINGER_DETECTED, 0);
+            notifyHal(NOTIFY_HBM_ON, 0);
         }
     }).detach();
     return Void();
