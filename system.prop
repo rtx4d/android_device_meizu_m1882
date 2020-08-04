@@ -196,9 +196,6 @@ persist.vendor.qti.games.gt.prof=1
 ro.vendor.qti.core_ctl_min_cpu=2
 ro.vendor.qti.core_ctl_max_cpu=4
 
-#Expose aux camera for below packages
-# vendor.camera.aux.packagelist=org.codeaurora.snapcam
-
 #Property to auto detect region for system 
 #Thanks to zeleiz about this prop
 ro.regionalization.support=true

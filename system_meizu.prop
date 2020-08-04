@@ -20,8 +20,6 @@ iop.enable_uxe=0
 ro.vendor.meizu_no_vts=1
 #Add end
 
-#Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.meizu.media.camera,com.example.testcamera
 #FLYME_MMF_VIDEO:hvx hwjpeg{@
 persist.hvx.hwjpeg.enable=true
 #@}
