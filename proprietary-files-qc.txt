@@ -390,7 +390,7 @@ vendor/lib/lib-rtpdaemoninterface.so|8f9fe4231f035ec5c511e8fc96766ab5f7007076
 vendor/lib/lib-rtpsl.so|4ad0315d496bc4e07c963cc765a5a49335f044da
 vendor/lib/lib-siputility.so|ba5a31300c0463ab9c9ae3c813480f8b9d49b9b5
 vendor/lib/lib-uceservice.so|c25d92e380ffc808f613aa3c637e44caf588f776
-vendor/lib/vendor.qti.hardware.data.dynamicdds@1.0.so|
+vendor/lib/vendor.qti.hardware.data.dynamicdds@1.0.so|15b89ad57fa7d5c78333798e9589dd97185a41bd
 vendor/lib/vendor.qti.hardware.radio.ims@1.0.so|6cef383ea306c901f2314e0c01899c3afc1dd31e
 vendor/lib/vendor.qti.hardware.radio.ims@1.1.so|cee4601d4b1c65dd4dbdabe036e31e91d98aff3e
 vendor/lib/vendor.qti.hardware.radio.ims@1.2.so|3ddb60258778e6876a88e4f5dafbae7728518e2f
