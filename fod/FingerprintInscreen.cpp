@@ -18,16 +18,12 @@
 #include <cmath>
 #include <thread>
 
-//#define NOTIFY_AUTH_TYPE 7
 #define NOTIFY_FINGER_DETECTED 1
 #define NOTIFY_FINGER_REMOVED 2
-#define NOTIFY_HBM_OFF 6
-#define NOTIFY_HBM_ON 5
-//#define NOTIFY_SCREEN_OFF 4
-#define NOTIFY_SCREEN_ON 3
 
 #define HBM_ENABLE_PATH "/sys/class/meizu/lcm/display/hbm"
 #define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness"
+#define DC_LIGHT_PATH "sys/class/meizu/lcm/display/DC_Enable" // If Flyme 7.9.4.20A Daily only
 
 #define FOD_POS_X 149 * 3
 #define FOD_POS_Y 531 * 3
@@ -60,7 +56,9 @@ static T get(const std::string& path, const T& def) {
 }
 
 FingerprintInscreen::FingerprintInscreen()
-    : mFingerPressed{false}
+    : mDC{0}
+    , mHBM{0}
+    , mFingerPressed{false}
     {
     mSteller = ISteller::getService();
     mStellerClientCallback = new StellerClientCallback();
@@ -88,13 +86,12 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 
 Return<void> FingerprintInscreen::onPress() {
     mFingerPressed = true;
-    notifyHal(NOTIFY_SCREEN_ON, 0);
     set(HBM_ENABLE_PATH, 1);
+    set(DC_LIGHT_PATH, 0);
     std::thread([this]() {
         std::this_thread::sleep_for(std::chrono::milliseconds(150));
         if (mFingerPressed) {
             notifyHal(NOTIFY_FINGER_DETECTED, 0);
-            notifyHal(NOTIFY_HBM_ON, 0);
         }
     }).detach();
     return Void();
@@ -102,13 +99,15 @@ Return<void> FingerprintInscreen::onPress() {
 
 Return<void> FingerprintInscreen::onRelease() {
     mFingerPressed = false;
-    set(HBM_ENABLE_PATH, 0);
-    notifyHal(NOTIFY_HBM_OFF, 0);
     notifyHal(NOTIFY_FINGER_REMOVED, 0);
+    set(HBM_ENABLE_PATH, mHBM);
+    set(DC_LIGHT_PATH, mDC);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
+    mDC = get(DC_LIGHT_PATH, 0);
+    mHBM = get(HBM_ENABLE_PATH, 0);
     return Void();
 }
 
