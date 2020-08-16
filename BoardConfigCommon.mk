@@ -179,7 +179,7 @@ WIFI_DRIVER_MODULE_PATH := "/vendor/lib/modules/qca_cld3_wlan.ko"
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-# NFC 
+# NFC
 TARGET_USES_NQ_NFC := false
 
 # FM

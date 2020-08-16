@@ -7,13 +7,11 @@
 $(call inherit-product, vendor/meizu/sdm845-common/sdm845-common-vendor.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-device
-
-PRODUCT_PACKAGE_OVERLAYS +=  $(LOCAL_PATH)/overlay-product
-
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-sdm845
-
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage \
+    $(LOCAL_PATH)/overlay-product \
+		$(LOCAL_PATH)/MzEffects
 
 # Properties
 -include $(LOCAL_PATH)/vendor_prop.mk
@@ -211,7 +209,7 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.1 \
     libandroid_net \
     netutils-wrapper-1.0
-	
+
 # Parts
 PRODUCT_PACKAGES += \
     MeizuParts

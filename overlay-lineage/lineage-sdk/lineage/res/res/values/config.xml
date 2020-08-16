@@ -46,7 +46,7 @@
          // via the alpha channel.
          // Note: if a device notification light supports LIGHTS_RGB_NOTIFICATION_LED
          // then HAL support is not necessary for brightness control.  In this case,
-         // brightness support will be provided by mokee-sdk through the scaling of
+         // brightness support will be provided by lineage-sdk through the scaling of
          // RGB color values.
          LIGHTS_ADJUSTABLE_NOTIFICATION_LED_BRIGHTNESS = 32
 
@@ -57,7 +57,7 @@
          // the alpha channel.
          // Note: if a device battery light supports LIGHTS_RGB_BATTERY_LED then HAL
          // support is not necessary for brightness control.  In this case,
-         // brightness support will be provided by mokee-sdk through the scaling of
+         // brightness support will be provided by lineage-sdk through the scaling of
          // RGB color values.
          LIGHTS_ADJUSTABLE_BATTERY_LED_BRIGHTNESS = 128
 
@@ -105,11 +105,45 @@
             8 - Last app
             9 - Toggle split screen
          This needs to match the enums in
-         sdk/src/java/org/mokee/internal/util/DeviceKeysConstants.java.
+         sdk/src/java/org/lineageos/internal/util/DeviceKeysConstants.java.
     -->
     <integer name="config_longPressOnHomeBehavior">7</integer>
 
+    <!-- Control the behavior when the user double-taps the home button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - In-app Search
+            6 - Launch camera
+            7 - Sleep
+            8 - Last app
+            9 - Toggle split screen
+            10 - Close app
+            11 - Torch
+            12 - Screenshot
+            13 - Volume Panel
+            14 - Clear All Notifications
+            15 - Notifications
+            16 - Toggle Qs Panel
+            17 - Ringer Modes
+         This needs to match the enums in
+         sdk/src/java/org/lineageos/internal/util/DeviceKeysConstants.java.
+    -->
+    <integer name="config_doubleTapOnHomeBehavior">2</integer>
+
     <!-- Whether device has a screen with a higher aspect ratio -->
     <bool name="config_haveHigherAspectRatioScreen">true</bool>
+
+    <!-- Defines the actions shown in advanced reboot submenu -->
+    <string-array name="config_restartActionsList">
+        <item>restart</item>
+        <item>restart_systemui</item>
+        <item>restart_recovery</item>
+        <item>restart_fastboot</item>
+        <item>restart_bootloader</item>
+        <item>restart_download</item>
+     </string-array>
 
 </resources>

@@ -50,4 +50,31 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <!-- Flag specifying whether or not IMS will use the dynamic ImsResolver -->
     <bool name="config_dynamic_bind_ims">true</bool>
 
+    <!-- The duration (in milliseconds) for the outgoing sms authorization request to timeout.-->
+    <integer name="config_sms_authorization_timeout_ms">15000</integer>
+    <!-- Enable SMS authorization support -->
+    <bool name="config_sms_authorization_enabled">true</bool>
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+           Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
+           should be empty.  An example would be "softap.*" -->
+    <string-array translatable="false" name="config_tether_wifi_regexs">
+        <item>"softap0"</item>
+        <item>"wigig0"</item>
+        <item>"wifi_br0"</item>
+    </string-array>
+
+     <!-- dual sap mode is supported on this device. -->
+     <bool name="config_wifi_dual_sap_mode_enabled">true</bool>
+
+     <!-- list of interface names for SoftAp in Dual mode. -->
+     <string-array translatable="false" name="config_wifi_dual_sap_interfaces">
+         <item>"softap1"</item>
+         <item>"softap2"</item>
+     </string-array>
+     <!-- Enable dual LTE capability support-->
+     <bool name="config_dual_LTE_capability">true</bool>
+
+    <!-- Device supports Sustained Performance Mode-->
+    <bool name="config_sustainedPerformanceModeSupported">true</bool>
+
 </resources>
