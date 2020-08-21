@@ -5,9 +5,9 @@
 //
 
 cc_binary {
-    name: "vendor.lineage.touch@1.0-service.meizu_sdm845",
-    vintf_fragments: ["vendor.lineage.touch@1.0-service.meizu_sdm845.xml"],
-    init_rc: ["vendor.lineage.touch@1.0-service.meizu_sdm845.rc"],
+    name: "vendor.lineage.touch@1.0-service.meizu_m1882",
+    vintf_fragments: ["vendor.lineage.touch@1.0-service.meizu_m1882.xml"],
+    init_rc: ["vendor.lineage.touch@1.0-service.meizu_m1882.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,

@@ -1,4 +1,4 @@
 hidl_package_root {
     name: "vendor.synaptics",
-    path: "device/meizu/sdm845-common/interfaces/synaptics",
+    path: "device/meizu/m1882/interfaces/synaptics",
 }

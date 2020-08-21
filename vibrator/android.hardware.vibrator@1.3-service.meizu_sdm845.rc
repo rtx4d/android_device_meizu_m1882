@@ -1,4 +1,0 @@
-service vendor.vibrator-1-3-meizu_sdm845 /vendor/bin/hw/android.hardware.vibrator@1.3-service.meizu_sdm845
-    class hal
-    user system
-    group system

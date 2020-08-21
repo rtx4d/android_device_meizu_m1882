@@ -5,7 +5,7 @@
  *
  */
 
-#define LOG_TAG "vendor.lineage.touch@1.0-service.meizu_sdm845"
+#define LOG_TAG "vendor.lineage.touch@1.0-service.meizu_m1882"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>

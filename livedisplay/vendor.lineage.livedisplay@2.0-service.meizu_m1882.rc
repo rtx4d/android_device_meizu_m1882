@@ -1,4 +1,4 @@
-service vendor.livedisplay-hal-2-0-meizu_sdm845 /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service.meizu_sdm845
+service vendor.livedisplay-hal-2-0-meizu_m1882 /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service.meizu_m1882
     class late_start
     user system
     group system

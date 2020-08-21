@@ -1,0 +1,4 @@
+service vendor.vibrator-1-3-meizu_m1882 /vendor/bin/hw/android.hardware.vibrator@1.3-service.meizu_m1882
+    class hal
+    user system
+    group system

@@ -10,8 +10,8 @@ $(call inherit-product, vendor/meizu/m1882/m1882-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage \
-    $(LOCAL_PATH)/overlay-product \
-    $(LOCAL_PATH)/MzEffects
+    $(LOCAL_PATH)/overlay-product
+#    $(LOCAL_PATH)/MzEffects
 
 # Properties
 -include $(LOCAL_PATH)/vendor_prop.mk
@@ -135,7 +135,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1 \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -190,12 +190,12 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.meizu_sdm845
+    android.hardware.light@2.0-service.meizu_m1882
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-init.sh \
-    vendor.lineage.livedisplay@2.0-service.meizu_sdm845
+    vendor.lineage.livedisplay@2.0-service.meizu_m1882
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -273,7 +273,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.meizu_sdm845
+    vendor.lineage.touch@1.0-service.meizu_m1882
 
 # USB
 PRODUCT_PACKAGES += \
@@ -282,7 +282,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.3-service.meizu_sdm845
+    android.hardware.vibrator@1.3-service.meizu_m1882
 
 # VNDK-SP
 PRODUCT_PACKAGES += \

@@ -5,11 +5,11 @@
 //
 
 cc_binary {
-    name: "android.hardware.vibrator@1.3-service.meizu_sdm845",
+    name: "android.hardware.vibrator@1.3-service.meizu_m1882",
     relative_install_path: "hw",
     vendor: true,
-    vintf_fragments: ["android.hardware.vibrator@1.3-service.meizu_sdm845.xml"],
-    init_rc: ["android.hardware.vibrator@1.3-service.meizu_sdm845.rc"],
+    vintf_fragments: ["android.hardware.vibrator@1.3-service.meizu_m1882.xml"],
+    init_rc: ["android.hardware.vibrator@1.3-service.meizu_m1882.rc"],
     srcs: ["service.cpp", "Vibrator.cpp"],
     cflags: ["-Wall", "-Werror", "-DMEIZU_HACK"],
     shared_libs: [

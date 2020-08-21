@@ -6,7 +6,7 @@
  *
  */
 
-#define LOG_TAG "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_sdm845"
+#define LOG_TAG "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
