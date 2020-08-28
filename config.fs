@@ -16,6 +16,9 @@ value:2905
 [AID_VENDOR_THERMAL]
 value:2907
 
+[AID_VENDOR_QTR]
+value:2909
+
 [vendor/bin/wcnss_filter]
 mode: 0755
 user: AID_BLUETOOTH
