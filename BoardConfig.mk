@@ -96,6 +96,7 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
+USE_DEVICE_SPECIFIC_LOC_API := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 
 # HIDL
@@ -194,6 +195,9 @@ TARGET_USES_NQ_NFC := false
 
 # FM
 BOARD_HAVE_QCOM_FM := false
+
+# SurfaceFlinger
+TARGET_USES_QCOM_UM_4_9_FAMILY := true
 
 # inherit from the proprietary version
 -include vendor/meizu/m1882/BoardConfigVendor.mk
