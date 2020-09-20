@@ -86,9 +86,11 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 
 Return<void> FingerprintInscreen::onPress() {
     mFingerPressed = true;
-    set(HBM_ENABLE_PATH, 1);
     set(DC_LIGHT_PATH, 0);
     std::thread([this]() {
+        int DelayBrightness = get(BRIGHTNESS_PATH, 0);
+        std::this_thread::sleep_for(std::chrono::milliseconds(DelayBrightness / -5 + 183));
+        set(HBM_ENABLE_PATH, 1);
         std::this_thread::sleep_for(std::chrono::milliseconds(150));
         if (mFingerPressed) {
             notifyHal(NOTIFY_FINGER_DETECTED, 0);
@@ -100,8 +102,11 @@ Return<void> FingerprintInscreen::onPress() {
 Return<void> FingerprintInscreen::onRelease() {
     mFingerPressed = false;
     notifyHal(NOTIFY_FINGER_REMOVED, 0);
-    set(HBM_ENABLE_PATH, mHBM);
     set(DC_LIGHT_PATH, mDC);
+    std::thread([this]() {
+        std::this_thread::sleep_for(std::chrono::milliseconds(18));
+        set(HBM_ENABLE_PATH, mHBM);
+    }).detach();
     return Void();
 }
 
