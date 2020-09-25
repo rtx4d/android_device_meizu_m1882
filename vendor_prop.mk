@@ -161,3 +161,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.thermalconfig.powersave=/vendor/etc/thermal.low.conf \
     persist.thermalengine.platform=qualcomm \
     persist.thermalmanager.enable=true \
+
+# USB HAL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.usb.use_gadget_hal=true
