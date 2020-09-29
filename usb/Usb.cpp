@@ -98,7 +98,7 @@ static int32_t writeFile(const std::string &filename,
 
 std::string appendRoleNodeHelper(const std::string &portName,
                                  PortRoleType type) {
-  std::string node("/sys/class/typec/" + portName);
+  std::string node("/sys/class/dual_role_usb/" + portName);
 
   switch (type) {
     case PortRoleType::DATA_ROLE:
@@ -106,7 +106,7 @@ std::string appendRoleNodeHelper(const std::string &portName,
     case PortRoleType::POWER_ROLE:
       return node + "/power_role";
     case PortRoleType::MODE:
-      return node + "/port_type";
+      return node + "/mode";
     default:
       return "";
   }
@@ -299,7 +299,7 @@ Return<void> Usb::switchRole(const hidl_string &portName,
 
 Status getAccessoryConnected(const std::string &portName, std::string *accessory) {
   std::string filename =
-    "/sys/class/typec/" + portName + "-partner/accessory_mode";
+    "/sys/class/dual_role_usb/" + portName + "-partner/accessory_mode";
 
   if (readFile(filename, accessory)) {
     ALOGE("getAccessoryConnected: Failed to open filesystem node: %s",
@@ -312,20 +312,20 @@ Status getAccessoryConnected(const std::string &portName, std::string *accessory
 
 Status getCurrentRoleHelper(const std::string &portName, bool connected,
                             PortRoleType type, uint32_t *currentRole) {
-  std::string filename;
+  std::string filename;https://mokeedev.review/c/MoKee/android_vendor_mk/+/46768
   std::string roleName;
   std::string accessory;
 
   // Mode
 
   if (type == PortRoleType::POWER_ROLE) {
-    filename = "/sys/class/typec/" + portName + "/power_role";
+    filename = "/sys/class/dual_role_usb/" + portName + "/power_role";
     *currentRole = static_cast<uint32_t>(PortPowerRole::NONE);
   } else if (type == PortRoleType::DATA_ROLE) {
-    filename = "/sys/class/typec/" + portName + "/data_role";
+    filename = "/sys/class/dual_role_usb/" + portName + "/data_role";
     *currentRole = static_cast<uint32_t>(PortDataRole::NONE);
   } else if (type == PortRoleType::MODE) {
-    filename = "/sys/class/typec/" + portName + "/data_role";
+    filename = "/sys/class/dual_role_usb/" + portName + "/mode";
     *currentRole = static_cast<uint32_t>(PortMode_1_1::NONE);
   } else {
     return Status::ERROR;
@@ -381,7 +381,7 @@ Status getCurrentRoleHelper(const std::string &portName, bool connected,
 Status getTypeCPortNamesHelper(std::unordered_map<std::string, bool> *names) {
   DIR *dp;
 
-  dp = opendir("/sys/class/typec");
+  dp = opendir("/sys/class/dual_role_usb");
   if (dp != NULL) {
     struct dirent *ep;
 
@@ -402,13 +402,13 @@ Status getTypeCPortNamesHelper(std::unordered_map<std::string, bool> *names) {
     return Status::SUCCESS;
   }
 
-  ALOGE("Failed to open /sys/class/typec");
+  ALOGE("Failed to open /sys/class/dual_role_usb");
   return Status::ERROR;
 }
 
 bool canSwitchRoleHelper(const std::string &portName, PortRoleType /*type*/) {
   std::string filename =
-      "/sys/class/typec/" + portName + "-partner/supports_usb_power_delivery";
+      "/sys/class/dual_role_usb/" + portName + "-partner/supports_usb_power_delivery";
   std::string supportsPD;
 
   if (!readFile(filename, &supportsPD)) {
@@ -596,7 +596,7 @@ static void uevent_event(uint32_t /*epevents*/, struct data *payload) {
       //Role switch is not in progress and port is in disconnected state
       if (!pthread_mutex_trylock(&payload->usb->mRoleSwitchLock)) {
         for (unsigned long i = 0; i < currentPortStatus_1_1.size(); i++) {
-          DIR *dp = opendir(std::string("/sys/class/typec/"
+          DIR *dp = opendir(std::string("/sys/class/dual_role_usb/"
               + std::string(currentPortStatus_1_1[i].status.portName.c_str())
               + "-partner").c_str());
           if (dp == NULL) {
