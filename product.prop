@@ -1,0 +1,23 @@
+# Meizu
+ro.meizu.autorecorder=true
+ro.meizu.build.branch=M1892_QOF8_mp1
+ro.meizu.build.devowner=meizu
+ro.meizu.contactmsg.auth=false
+ro.meizu.customize.pccw=false
+ro.meizu.dmdebug=false
+ro.meizu.otaupgrade.config=true
+ro.meizu.permanentkey=false
+ro.meizu.published.type=prd
+ro.meizu.region.enable=true
+ro.meizu.security=true
+ro.meizu.setupwizard.flyme=true
+ro.meizu.setupwizard.setlang=true
+ro.meizu.sip.support=true
+ro.meizu.srsenable=true
+ro.meizu.visualvoicemail=true
+ro.meizu.voip.support=true
+ro.meizu_fido_support=1
+ro.meizu_ifaa_support=1
+ro.meizu_soter_support=1
+ro.vendor.meizu_no_vts=1
+ro.product.flyme.model=M1882

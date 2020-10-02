@@ -13,9 +13,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-product
 #    $(LOCAL_PATH)/MzEffects
 
-# Properties
--include $(LOCAL_PATH)/vendor_prop.mk
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service.m1882
@@ -97,7 +94,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_camera \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service\
+    android.hardware.camera.provider@2.4-service \
     Snap
 
 # Charger
@@ -300,10 +297,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
-#PocketMode
+# PocketMode
 PRODUCT_PACKAGES += \
     MeizuPocketMode
 
-#FOD specific of crDroid
+# FOD specific of crDroid
 EXTRA_FOD_ANIMATIONS := true
 TARGET_HAS_FOD := true
