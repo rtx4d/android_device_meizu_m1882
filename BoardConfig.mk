@@ -46,10 +46,6 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-
-
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_HEADER_SOURCE := kernel/meizu/sdm845
 TARGET_KERNEL_CONFIG := sdm845-perf_defconfig
 
@@ -85,7 +81,6 @@ TARGET_USES_NEW_ION_API :=true
 TARGET_USES_OVERLAY := true
 TARGET_USES_COLOR_METADATA := true
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
-USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
 
 # DRM
@@ -135,7 +130,6 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/recovery.fstab
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USES_MKE2FS := true
 
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_meizu_m1882
@@ -191,15 +185,6 @@ WIFI_DRIVER_MODULE_NAME := "wlan"
 WIFI_DRIVER_MODULE_PATH := "/vendor/lib/modules/qca_cld3_wlan.ko"
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-
-# NFC
-TARGET_USES_NQ_NFC := false
-
-# FM
-BOARD_HAVE_QCOM_FM := false
-
-# SurfaceFlinger
-TARGET_USES_QCOM_UM_4_9_FAMILY := true
 
 # inherit from the proprietary version
 -include vendor/meizu/m1882/BoardConfigVendor.mk
