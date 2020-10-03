@@ -26,17 +26,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Define fastmmi
-service fastmmi /vendor/bin/mmi
-    user root
-    group root
-    disabled
-
-service mmid /vendor/bin/mmid
-    user root
-    group root
-    disabled
-
 on property:sys.boot_mode=ffbm
     write ${persist.vendor.mmi.misc_dev_path} "ffbm-01"
 
@@ -57,24 +46,6 @@ on post-fs-data
     setprop persist.sys.usb.ffbm-00.func diag
     setprop persist.sys.usb.ffbm-01.func diag
     setprop persist.sys.usb.ffbm-02.func diag
-
-on mmi && property:ro.bootmode=ffbm-00
-    # ========================================================
-    #              This is FFBM only settings.
-    # ========================================================
-    #mkdir for factory data files.
-    mkdir /persist/FTM_AP 0750 root root
-
-    start fastmmi
-
-on mmi && property:ro.bootmode=ffbm-01
-    # ========================================================
-    #              This is FFBM only settings.
-    # ========================================================
-    #mkdir for factory data files.
-    mkdir /persist/FTM_AP 0750 root root
-
-    start fastmmi
 
 on ffbm
     trigger early-fs

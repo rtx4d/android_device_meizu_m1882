@@ -1,146 +1,119 @@
 on init
-    # FLyme:chenjianbo add vibrator permession {@
-    chmod 0666 /sys/class/meizu/motor/on_off
+    # Vibration motors
     chown system system /sys/class/meizu/motor/on_off
-    chmod 0660 /sys/class/meizu/motor/set_cspress
     chown system system /sys/class/meizu/motor/set_cspress
-    chmod 0660 /sys/class/meizu/motor/set_mback
     chown system system /sys/class/meizu/motor/set_mback
-    chmod 0660 /sys/class/meizu/motor/rtp
     chown system system /sys/class/meizu/motor/rtp
-    chmod 0660 /sys/class/meizu/motor/set_rtp
     chown system system /sys/class/meizu/motor/set_rtp
-    # @}
+    chown system system /sys/class/meizu/motor/freq
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/meizu/motor/timeout
+    chown system system /sys/class/meizu/motor/proline
+    chmod 0666 /sys/class/meizu/motor/on_off
+    chmod 0666 /sys/class/meizu/motor/set_cspress
+    chmod 0666 /sys/class/meizu/motor/set_mback
+    chmod 0666 /sys/class/meizu/motor/rtp
+    chmod 0666 /sys/class/meizu/motor/set_rtp
+    chmod 0666 /sys/class/meizu/motor/freq
+    chmod 0666 /sys/class/timed_output/vibrator/enable
+    chmod 0666 /sys/class/meizu/motor/timeout
+    chmod 0666 /sys/class/meizu/motor/proline
 
-    # FLyme:chenjianbo add cs_press  permession {@
-    chmod 0666  /sys/cs_press/cs_press/sleep
-    chown system system  /sys/cs_press/cs_press/sleep
-    # @}
+    # Control press pressure
+    chown system system /sys/cs_press/cs_press/sleep
+    chown system system /sys/cs_press/cs_press/cal_data
+    chown system system /dev/ndt
+    chmod 0666 /sys/cs_press/cs_press/sleep
+    chmod 0666 /sys/cs_press/cs_press/cal_data
+    chmod 0666 /dev/ndt
+    # Disable by default
+    write /sys/cs_press/cs_press/sleep 1
 
 on fs
+    # ADB
     setprop sys.usb.ffs.aio_compat 1
     setprop persist.adb.nonblocking_ffs 0
     setprop ro.adb.nonblocking_ffs 0
 
 on post-fs-data
-    #zengxin@System.Setting Disable/Enable mCharge {@
-    chown system system /sys/class/meizu/charger/fastcharging
-    chmod 0660 /sys/class/meizu/charger/fastcharging
-    #@}
-
-    #huangxiaotao@System.Setting add for lut mode{@
+    # Display color mode
     chown system system /sys/class/meizu/lcm/display/lut
     chmod 0660 /sys/class/meizu/lcm/display/lut
-    #@}
 
-    #For SRS  wenjun.zhang@BSP
+    # SRS
     chown system system /sys/srs/srs_enable
-    chmod 0664 /sys/srs/srs_enable
     chown system system /sys/srs/srs_debug
-    chmod 0664 /sys/srs/srs_debug
     chown system system /sys/srs/srs_cpulevel
-    chmod 0664 /sys/srs/srs_cpulevel
     chown system system /sys/srs/srs_gpulevel
-    chmod 0664 /sys/srs/srs_gpulevel
     chown system system /sys/srs/srs_buslevel
-    chmod 0664 /sys/srs/srs_buslevel
     chown system system /sys/srs/srs_iolevel
-    chmod 0664 /sys/srs/srs_iolevel
     chown system system /sys/srs/srs_memlevel
+    chmod 0664 /sys/srs/srs_enable
+    chmod 0664 /sys/srs/srs_debug
+    chmod 0664 /sys/srs/srs_cpulevel
+    chmod 0664 /sys/srs/srs_gpulevel
+    chmod 0664 /sys/srs/srs_buslevel
+    chmod 0664 /sys/srs/srs_iolevel
     chmod 0664 /sys/srs/srs_memlevel
 
-    # Change the rstinfo perms
+    # RSTINFO
     chown system system /sys/rstinfo/rstinfo_enable
-    restorecon /sys/rstinfo/rstinfo_enable
     chown system system /proc/stability/rstinfo_cnt
     chown system system /proc/stability/rootinfo_cnt
     chown system system /proc/stability/rstinfo_debug
     chown system system /proc/stability/rstinfo_cnt_log
     chown system system /proc/stability/rstinfo_rst_log
     chown system system /proc/stability/rstinfo_android_cnt
+    restorecon /sys/rstinfo/rstinfo_enable
 
-    # PA calibration {@
+    # Cirrus calibration
     chown system audio /dev/msm_cirrus_playback
     chmod 0660 /dev/msm_cirrus_playback
-    # @}
 
-    # Add M63 cs press calibration by Richard {@
-    chown system system /dev/ndt
-    chmod 0666 /dev/ndt
-    chown system system /sys/cs_press/cs_press/cal_data
-    chmod 0666 /sys/cs_press/cs_press/cal_data
-    # @}
-
+    # Start FOD HAL
     setprop sys.meizu.fingerprint.boot start
 
 on boot
-    # Permissions for mz_rpmb_ctl
+    # MZ_RPMB_CTL
     chown system system /dev/mz_rpmb_ctl
     chmod 0600 /dev/mz_rpmb_ctl
 
-    # Permissions for display
-    chmod 0644 /sys/class/meizu/lcm/display/hbm
+    # Display
+    # HBM mode
     chown system system /sys/class/meizu/lcm/display/hbm
-
-    # Permissions for fingerprint
-    chmod 0644 /sys/class/meizu/fp/qos_set
-    chown system system /sys/class/meizu/fp/qos_set
-
-    # FLYME:zengyonglong.AOD for change aod display mode permission
+    chmod 0644 /sys/class/meizu/lcm/display/hbm
+    # AOD
     chown system system /sys/class/meizu/lcm/display/doze_mode
-    chmod 0666 /sys/class/meizu/lcm/display/doze_mode
-
-    # BSP:yangxiaokun.bsp for exit or enter aod permission
     chown system system /sys/class/meizu/lcm/display/aod
+    chown system system /sys/class/meizu/lcm/display/doze_s2
+    chmod 0666 /sys/class/meizu/lcm/display/doze_mode
     chmod 0666 /sys/class/meizu/lcm/display/aod
-	chown system system /sys/class/meizu/lcm/display/doze_s2
     chmod 0666 /sys/class/meizu/lcm/display/doze_s2
-
-    #Permissions for gesture {@
+    # Sunnyscreen mode
+    chown system system /sys/class/meizu/lcm/display/sunnyscreen
+    chmod 0644 /sys/class/meizu/lcm/display/sunnyscreen
+    # Screen off gestures
     chown system system /sys/class/meizu/tp/gesture_control
     chmod 0660 /sys/class/meizu/tp/gesture_control
-    # @}
 
-    #Permissions for breath blink {@
-    chown system system /sys/class/meizu/mx_leds/leds/breath/blink
-    chmod 0660 /sys/class/meizu/mx_leds/leds/breath/blink
-    # @}
+    # FOD
+    chown system system /sys/class/meizu/fp/qos_set
+    chmod 0644 /sys/class/meizu/fp/qos_set
 
-    #<<chenyuwen
-    chmod 0666 /sys/class/meizu/charger/fast_usb_mode
+    # Charging and USB stuff
     chown system system /sys/class/meizu/charger/fast_usb_mode
-    chmod 0666 /sys/class/meizu/charger/fastcharging
     chown system system /sys/class/meizu/charger/fastcharging
-    chmod 0444 /sys/class/meizu/usb_thermal/sync_temp
     chown system system /sys/class/meizu/usb_thermal/sync_temp
-    #chenyuwen>>
+    chmod 0666 /sys/class/meizu/charger/fast_usb_mode
+    chmod 0666 /sys/class/meizu/charger/fastcharging
+    chmod 0444 /sys/class/meizu/usb_thermal/sync_temp
+    # Enabled by default
+    write /sys/class/meizu/charger/fast_usb_mode 1
+    write /sys/class/meizu/charger/fastcharging 1
 
-    # added for breath-led & vibrator {@liudong
-    # Permissions for breath-led
-    chmod 0664 /sys/class/meizu/mx_leds/leds/breath/blink
+    # Breath led mode
     chown system system /sys/class/meizu/mx_leds/leds/breath/blink
-    # Permissions for vibrator
-    chmod 0666 /sys/class/meizu/motor/on_off
-    chown system system /sys/class/meizu/motor/on_off
-    chmod 0666 /sys/class/meizu/motor/freq
-    chown system system /sys/class/meizu/motor/freq
-    chmod 0666 /sys/class/meizu/motor/rtp
-    chown system system /sys/class/meizu/motor/rtp
-    chmod 0666 /sys/class/meizu/motor/set_rtp
-    chown system system /sys/class/meizu/motor/set_rtp
-    chmod 0666 /sys/class/meizu/motor/timeout
-    chown system system /sys/class/timed_output/vibrator/enable
-    chmod 0666 /sys/class/meizu/motor/proline
-    chown system system /sys/class/meizu/motor/proline
-    chmod 0666 /sys/class/meizu/motor/set_cspress
-    chown system system /sys/class/meizu/motor/set_cspress
-    chmod 0666 /sys/class/meizu/motor/set_mback
-    chown system system /sys/class/meizu/motor/set_mback
-    # add end @}
+    chmod 0664 /sys/class/meizu/mx_leds/leds/breath/blink
 
-    # Permissions for display
-    chmod 0644 /sys/class/meizu/lcm/display/sunnyscreen
-    chown system system /sys/class/meizu/lcm/display/sunnyscreen
-
-    # Wifi firmware reload path
+    # Wifi firmware reload
     chown wifi wifi /sys/module/wlan/parameters/fwpath
