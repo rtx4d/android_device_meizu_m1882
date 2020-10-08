@@ -11,7 +11,11 @@
 #include "FingerprintInscreen.h"
 #include "StellerClientCallback.h"
 
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
+
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <cutils/properties.h>
 #include <hidl/HidlTransportSupport.h>
 #include <fstream>
@@ -37,6 +41,8 @@ namespace inscreen {
 namespace V1_0 {
 namespace implementation {
 
+using android::base::GetProperty;
+
 /*
  * Write value to path and close file.
  */
@@ -60,6 +66,8 @@ FingerprintInscreen::FingerprintInscreen()
     , mHBM{0}
     , mFingerPressed{false}
     {
+    mFODModel = GetProperty("vendor.meizu.fp_vendor", "");
+    LOG(INFO) << "mFODModel: " << mFODModel;
     mSteller = ISteller::getService();
     mStellerClientCallback = new StellerClientCallback();
 }

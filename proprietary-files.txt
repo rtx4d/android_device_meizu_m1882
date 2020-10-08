@@ -514,6 +514,13 @@ vendor/framework/com.synaptics.fingerprint.extension.jar
 vendor/lib64/hw/fingerprint.syna.so
 vendor/lib64/libvfmtztransport.so
 
+# Fingerprint - Goodix (wtf Meizu?!)
+vendor/lib64/hw/fingerprint.goodix.so
+vendor/lib64/libgoodixhwfingerprint.so
+vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so
+vendor/lib64/libgf_hal.so
+vendor/lib64/libgf_ca.so
+
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
