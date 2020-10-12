@@ -151,11 +151,9 @@ vendor/firmware/sms_ring32.bin
 
 # ADSP
 lib/libadsprpc_system.so
-lib/libfastcvdsp_stub.so
 lib/libmdsprpc_system.so
 lib/libsdsprpc_system.so
 lib64/libadsprpc_system.so
-lib64/libfastcvdsp_stub.so
 lib64/libmdsprpc_system.so
 lib64/libsdsprpc_system.so
 vendor/bin/adsprpcd
@@ -222,10 +220,10 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so
 vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 
 # Audio
-lib/soundfx/libbassboostMz.so
-lib/soundfx/libequalizerMz.so
-lib/soundfx/liblivemusicMz.so
-lib/soundfx/libvirtualizerMz.so
+vendor/lib/soundfx/libbassboostMz.so
+vendor/lib/soundfx/libequalizerMz.so
+vendor/lib/soundfx/liblivemusicMz.so
+vendor/lib/soundfx/libvirtualizerMz.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -272,18 +270,17 @@ vendor/firmware/cs35l41-dsp1-spk-prot-right.bin
 vendor/firmware/cs35l41-dsp1-spk-prot-right.wmfw
 
 # Audio - HAL
-lib/libaudioroute.so
-lib64/libaudioroute.so
-vendor/lib/hw/audio.primary.sdm845.so|d2c6b69f17dcf8f72dff87c4f22d6a7bcfee77fb
+lib/vndk-29/libaudioroute.so:lib/libaudioroute.so
+lib64/vndk-29/libaudioroute.so:lib64/libaudioroute.so
+vendor/lib/hw/audio.primary.sdm845.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libtinycompress_vendor.so
-vendor/lib64/hw/audio.primary.sdm845.so|b1b64d25a163461d1a694a67976a84eac87e78ba
+vendor/lib64/hw/audio.primary.sdm845.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libtinycompress_vendor.so
 
 # Camera
 lib/libarcsoft_supernight.so
-lib/libsmcinvokecred.so
 vendor/lib/camera/com.qti.eeprom.truly_cmb433.so
 vendor/lib/camera/com.qti.sensor.imx318.so
 vendor/lib/camera/com.qti.sensor.imx334.so
@@ -393,7 +390,7 @@ vendor/firmware/bu64748gwz.coeff
 vendor/firmware/bu64748gwz.prog
 
 # Charger
-sbin/charger:bin/meizu_charger
+bin/charger:bin/meizu_charger
 vendor/bin/hvdcp_opti
 
 # Display - HAL
@@ -419,12 +416,12 @@ vendor/lib64/vendor.display.config@1.0_vendor.so
 vendor/lib64/vendor.display.config@1.1_vendor.so
 
 # DRM
-lib/libGPTEE_system.so
-lib/libQTEEConnector_system.so
-lib/vendor.qti.hardware.qteeconnector@1.0.so
-lib64/libGPTEE_system.so
-lib64/libQTEEConnector_system.so
-lib64/vendor.qti.hardware.qteeconnector@1.0.so
+product/lib/libGPTEE_system.qti.so
+product/lib/libQTEEConnector_system.so
+product/lib/vendor.qti.hardware.qteeconnector@1.0.so
+product/lib64/libGPTEE_system.qti.so
+product/lib64/libQTEEConnector_system.so
+product/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/bin/qseecomd
@@ -453,6 +450,7 @@ vendor/lib/libssd.so
 vendor/lib/libtzdrmgenprov.so
 vendor/lib/vendor.qti.hardware.qteeconnector@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.tui_comm@1.0_vendor.so
+vendor/lib/libspl.so
 vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
 vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libGPreqcancel.so
@@ -475,6 +473,7 @@ vendor/lib64/libssd.so
 vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0_vendor.so
+vendor/lib64/libspl.so
 
 # DRM - PLAYready
 vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so
@@ -530,8 +529,10 @@ vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/libspcom.so
 
 # Graphics
-lib/libsdm-disp-apis.so
-lib64/libsdm-disp-apis.so
+product/lib/libsdm-disp-apis.qti.so
+product/lib64/libsdm-disp-apis.qti.so
+vendor/lib/libsdm-disp-apis.so
+vendor/lib64/libsdm-disp-apis.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -641,16 +642,19 @@ vendor/lib64/vendor.display.postproc@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
 
 # IOP
-lib/vendor.qti.hardware.iop@1.0.so
-lib/vendor.qti.hardware.iop@2.0.so
-lib64/vendor.qti.hardware.iop@1.0.so
-lib64/vendor.qti.hardware.iop@2.0.so
+vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
+vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc
 vendor/lib/hw/vendor.qti.hardware.iop@2.0-impl.so
+vendor/lib/libqti-iopd-client.so
+vendor/lib/libqti-iopd.so
 vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so
 vendor/lib64/hw/vendor.qti.hardware.iop@2.0-impl.so
+vendor/lib64/libqti-iopd-client.so
+vendor/lib64/libqti-iopd.so
 vendor/lib64/vendor.qti.hardware.iop@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.iop@2.0_vendor.so
+
 
 # IPA
 vendor/firmware/ipa_fws.b00
@@ -693,9 +697,9 @@ vendor/lib64/vendor.qti.voiceprint@1.0.so
 -vendor/lib/libplatformconfig.so
 -vendor/lib64/libplatformconfig.so
 lib/libmmosal.so
-lib/vendor.qti.hardware.vpp@1.1.so
+product/lib/vendor.qti.hardware.vpp@1.1.so
 lib64/libmmosal.so
-lib64/vendor.qti.hardware.vpp@1.1.so
+product/lib64/vendor.qti.hardware.vpp@1.1.so
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
@@ -829,8 +833,8 @@ vendor/lib64/libqmi_encdec.so
 vendor/lib64/libsmemlog.so
 
 # QMI - from beryllium - Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys
-vendor/lib/libqmi_cci.so
-vendor/lib64/libqmi_cci.so
+vendor/lib/libqmi_cci.so|a06c48ad81875670eaa982d58704cb005c937621
+vendor/lib64/libqmi_cci.so|b573caab02a748ceb63a596b6dfbca946b5fc512
 
 # Sensor
 etc/sensors/proto/descriptor.proto
@@ -849,7 +853,6 @@ etc/sensors/proto/sns_client.proto
 etc/sensors/proto/sns_cmc.proto
 etc/sensors/proto/sns_da_test.proto
 etc/sensors/proto/sns_dae.proto
-etc/sensors/proto/sns_dae_ccd.proto
 etc/sensors/proto/sns_device_mode.proto
 etc/sensors/proto/sns_device_orient.proto
 etc/sensors/proto/sns_diag.proto
@@ -858,7 +861,6 @@ etc/sensors/proto/sns_distance_bound.proto
 etc/sensors/proto/sns_dpc.proto
 etc/sensors/proto/sns_ext_svc.proto
 etc/sensors/proto/sns_facing.proto
-etc/sensors/proto/sns_flip.proto
 etc/sensors/proto/sns_fmv.proto
 etc/sensors/proto/sns_fw.proto
 etc/sensors/proto/sns_game_rv.proto
@@ -884,7 +886,6 @@ etc/sensors/proto/sns_pose_6dof.proto
 etc/sensors/proto/sns_pressure.proto
 etc/sensors/proto/sns_proximity.proto
 etc/sensors/proto/sns_psmd.proto
-etc/sensors/proto/sns_raise.proto
 etc/sensors/proto/sns_registry.proto
 etc/sensors/proto/sns_remote_proc_state.proto
 etc/sensors/proto/sns_resampler.proto
@@ -896,7 +897,6 @@ etc/sensors/proto/sns_sig_motion.proto
 etc/sensors/proto/sns_signal_sensor.proto
 etc/sensors/proto/sns_sim.proto
 etc/sensors/proto/sns_sim_legacy.proto
-etc/sensors/proto/sns_static_detect.proto
 etc/sensors/proto/sns_std.proto
 etc/sensors/proto/sns_std_event_gated_sensor.proto
 etc/sensors/proto/sns_std_sensor.proto
@@ -970,17 +970,23 @@ vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbtnv.so
 
 # Bluetooth (ANT+)
-lib/com.qualcomm.qti.ant@1.0.so
-lib64/com.qualcomm.qti.ant@1.0.so
-vendor/lib/com.qualcomm.qti.ant@1.0.so
-vendor/lib64/com.qualcomm.qti.ant@1.0.so
+product/lib/com.qualcomm.qti.ant@1.0.so
+product/lib64/com.qualcomm.qti.ant@1.0.so
+vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so
+vendor/lib64/com.qualcomm.qti.ant@1.0_vendor.so
 
 # Bluetooth (Audio)
-vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
+product/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
+product/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
+vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
 vendor/lib/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
-vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
+vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
 vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so
+vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
+
 
 # Bluetooth (aptX) - from crosshatch - QP1A.190711.020
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
@@ -1060,59 +1066,60 @@ vendor/lib64/vendor.qti.data.factory@1.0.so|314b14978c4e058b141791533f79fc77cfb4
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so|6553299b19ba8609051ce00b30f8c716ff9cc424
 
 # DRM - Widevine
-vendor/bin/hw/android.hardware.drm@1.1-service.widevine
-vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
+vendor/bin/hw/android.hardware.drm@1.0-service.widevine
+vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
 vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/libwvhidl.so
 vendor/lib64/libwvhidl.so
 vendor/lib64/mediadrm/libwvdrmengine.so
 
 # GPS - from beryllium - Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys
-vendor/bin/garden_app
-vendor/bin/hw/android.hardware.gnss@2.0-service-qti
-vendor/bin/loc_launcher
-vendor/bin/lowi-server
-vendor/bin/slim_daemon
-vendor/bin/xtra-daemon
-vendor/bin/xtwifi-client
-vendor/bin/xtwifi-inet-agent
-vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml
-vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
-vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so
-vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
-vendor/lib64/libbatching.so
-vendor/lib64/libdataitems.so
-vendor/lib64/libgdtap.so
-vendor/lib64/libgeofencing.so
-vendor/lib64/libgnsspps.so
-vendor/lib64/libgnss.so
-vendor/lib64/libgps.utils.so
-vendor/lib64/libizat_client_api.so
-vendor/lib64/libizat_core.so
-vendor/lib64/liblbs_core.so
--vendor/lib64/libloc_api_v02.so
-vendor/lib64/liblocation_api.so
-vendor/lib64/liblocationservice_glue.so
-vendor/lib64/liblocationservice.so
-vendor/lib64/libloc_core.so
-vendor/lib64/liblowi_client.so
-vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libqdma_file_agent.so
-vendor/lib64/libslimclient.so
-vendor/lib64/libxtadapter.so
-vendor/lib64/vendor.qti.gnss@1.0.so
-vendor/lib64/vendor.qti.gnss@1.1.so
-vendor/lib64/vendor.qti.gnss@1.2.so
-vendor/lib64/vendor.qti.gnss@2.0.so
-vendor/lib64/vendor.qti.gnss@2.1.so
-vendor/lib64/vendor.qti.gnss@3.0-service.so
-vendor/lib64/vendor.qti.gnss@3.0.so
-vendor/lib/vendor.qti.gnss@1.0.so
-vendor/lib/vendor.qti.gnss@1.1.so
-vendor/lib/vendor.qti.gnss@1.2.so
-vendor/lib/vendor.qti.gnss@2.0.so
-vendor/lib/vendor.qti.gnss@2.1.so
-vendor/lib/vendor.qti.gnss@3.0.so
+vendor/bin/garden_app|15d74fbdbc44579e1766c9ac252cc5cca7c7584c
+vendor/bin/hw/android.hardware.gnss@2.0-service-qti|1f4a3cd823f19eb8a6f12a725506b6fa5d661ad7
+vendor/bin/loc_launcher|bb84609e1beee17b3adc24032446f851bc0fd015
+vendor/bin/lowi-server|9384711a691ca8100b31f543213d84ad65bc473c
+vendor/bin/slim_daemon|ed70d0299e05f199831bc115769d9b7e6d1b0dfa
+vendor/bin/xtra-daemon|73d24d8e31a65fb1f1d1bb99be807e1adcf71af4
+vendor/bin/xtwifi-client|108345808fa39a854c5c87c2b577df37e5fd569f
+vendor/bin/xtwifi-inet-agent|2f282878b0fdfd5e2f8c1c6e63798ea355606cf9
+vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc|488262f63723c789ea9aaed1d63ce32ff8075a15
+vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml|8d7eafd68db9bbe7ec7a5c4d547f026869766081
+vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml|9b2f6691d6c224bcb9ab9a0d57adfb9e52f1b53e
+vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so|85098a3429dcc0943aea87d76f112f4bdd4361ff
+vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so|892bfd81ae1974e915e643b47a4ffea7f83a20ad
+vendor/lib64/libbatching.so|70db2821a161c2250b45bca62b75c7a45546d6fe
+vendor/lib64/libdataitems.so|e6a993122775dceb2e52901137b4fa89d3f863b8
+vendor/lib64/libgdtap.so|087c8bfbc12c2b3e533958f88a83612dda1eb01d
+vendor/lib64/libgeofencing.so|0d8b56ccf0b788469cc89ebbdd99e81150a7ede2
+vendor/lib64/libgnsspps.so|b02842c75cb70d0a53ab34a205e54b8f858eafc5
+vendor/lib64/libgnss.so|e9e786d7ab6606480013372a34c0faf2d724cd0b
+vendor/lib64/libgps.utils.so|39fc461d9229dcf7746c81bb31f370652961cee1
+vendor/lib64/libizat_client_api.so|59bba1978f2dc6abbc6d45ac21537225a9c98ca4
+vendor/lib64/libizat_core.so|c37117caa8b94ec0752ef6f208b2b43b067b3a4a
+vendor/lib64/liblbs_core.so|493ff00e0ed33a81c6e24f86b93cf8ef1d3819ad
+-vendor/lib64/libloc_api_v02.so|1287b492153edc0a6e2703da608ed1ce038531a1
+vendor/lib64/liblocation_api.so|3f40acd2b4031ae3f092e81716eabedb850a4aef
+vendor/lib64/liblocationservice_glue.so|8afd2599f3f88c42de589d3c25da67f3286f4b0d
+vendor/lib64/liblocationservice.so|c36f754e4028c4163faaa60010bf64b34964dfef
+vendor/lib64/libloc_core.so|37ff137cd3f579d95d27a10f739250c11dd91157
+vendor/lib64/liblowi_client.so|c6bce80ccd56dc09516a9abf7c4caf82f80a1d2b
+vendor/lib64/liblowi_wifihal.so|1103d54e41ba44e1fc71575416459cc897dc84a6
+vendor/lib64/libqdma_file_agent.so|95dce7b5a2b5b9508a460cdd44a235016856ae58
+vendor/lib64/libslimclient.so|5a12b7989fd408c7a6616d22e6ac20bcc82a7b3c
+vendor/lib64/libxtadapter.so|fe4c278ee9c7d18dc304d4dbc1bc07d00fd0e39d
+vendor/lib64/vendor.qti.gnss@1.0.so|eeff09148d16b576feb701c641b6784b187d389f
+vendor/lib64/vendor.qti.gnss@1.1.so|ac996dd910658ded276ddd2b50c79985d0f2afbc
+vendor/lib64/vendor.qti.gnss@1.2.so|3b9b7ddb0e3b26c4930b8fb6b959b3917e0a1020
+vendor/lib64/vendor.qti.gnss@2.0.so|9c84aefbc31f5d001148f91041483b61d9c4adf9
+vendor/lib64/vendor.qti.gnss@2.1.so|55ec661c8e9f52e373098d65b0ad2100473ad369
+vendor/lib64/vendor.qti.gnss@3.0-service.so|51e7a189e56e4329ea28f49fae52dcc27fac23d4
+vendor/lib64/vendor.qti.gnss@3.0.so|00bf10ebe87ad3268443c844c2a2dea54bf743dd
+vendor/lib/vendor.qti.gnss@1.0.so|249fdab2165bbd24b390ff67b4dc2a266babd480
+vendor/lib/vendor.qti.gnss@1.1.so|021c6f65db284563335865b705b46ef41b0af11e
+vendor/lib/vendor.qti.gnss@1.2.so|c8bea170f303259a0ae61a109ba9651fb58cddfa
+vendor/lib/vendor.qti.gnss@2.0.so|ff2fa7a1af94ea0eb2cf470f7bcbc1d9b9faade8
+vendor/lib/vendor.qti.gnss@2.1.so|cadc033aca6a849efc2de2c068acf24ddd1f77da
+vendor/lib/vendor.qti.gnss@3.0.so|f032e98103fc4b340d07347268af32edf84509ec
 
 # Postprocessing
 vendor/bin/mm-pp-dpps

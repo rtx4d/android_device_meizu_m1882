@@ -28,9 +28,9 @@ PRODUCT_GMS_CLIENTID_BASE := android-meizu
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE="16th" \
     PRODUCT_NAME="meizu_16th_CN" \
-    PRIVATE_BUILD_DESC="meizu_16th_CN-user 8.1.0 OPM1.171019.026 1572332128 release-keys"
+    PRIVATE_BUILD_DESC="meizu_16th_CN-user 10 QKQ1.191222.002 1594833800 release-keys"
 
-BUILD_FINGERPRINT := Meizu/meizu_16th_CN/16th:8.1.0/OPM1.171019.026/1572332128:user/release-keys
+BUILD_FINGERPRINT := meizu/qssi/qssi:10/QKQ1.191222.002/1594833800:user/release-keys
 
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.sf.lcd_density=400
