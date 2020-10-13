@@ -390,7 +390,7 @@ vendor/firmware/bu64748gwz.coeff
 vendor/firmware/bu64748gwz.prog
 
 # Charger
-bin/charger:bin/meizu_charger
+bin/charger:bin/meizu_charger|2b8dbbce5530114b4cdef606eb27033cfe33c79a
 vendor/bin/hvdcp_opti
 
 # Display - HAL
@@ -962,10 +962,10 @@ vendor/bin/hci_qcomm_init
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/wcnss_filter
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|38d3d4322ef49e9d66fa4bfda969cd49e23a049b
 vendor/lib/libbt-hidlclient.so
 vendor/lib/libbtnv.so
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|c2495d92760a4a3c9d6dae1a3a60cc18c86f096f
 vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbtnv.so
 
