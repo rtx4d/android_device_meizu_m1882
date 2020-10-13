@@ -918,6 +918,7 @@ lib64/libsns_low_lat_stream_stub.so
 lib64/libsnsdiaglog.so
 lib64/libssc.so
 vendor/bin/sensors.qcom
+vendor/bin/mz_sensor_test
 vendor/etc/sap.conf
 vendor/etc/sensors/hals.conf
 vendor/lib/libsdsprpc.so
@@ -936,6 +937,19 @@ vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libssc.so
 vendor/lib64/libssc_default_listener.so
 vendor/lib64/sensors.ssc.so
+
+# QTI Sensors Calibrate
+product/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
+product/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
+product/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
+vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc
+vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml
+vendor/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
+vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
+vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
 # Thermal
 vendor/bin/thermal-engine

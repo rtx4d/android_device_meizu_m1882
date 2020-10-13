@@ -96,6 +96,10 @@ on boot
     chown system system /sys/class/meizu/tp/gesture_control
     chmod 0660 /sys/class/meizu/tp/gesture_control
 
+    # Meizu Sensor Test service
+    chown system system /vendor/bin/mz_sensor_test
+    chmod 0666 /vendor/bin/mz_sensor_test
+
     # FOD
     chown system system /sys/class/meizu/fp/qos_set
     chmod 0644 /sys/class/meizu/fp/qos_set
