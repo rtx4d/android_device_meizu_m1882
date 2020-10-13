@@ -1079,13 +1079,12 @@ vendor/lib64/libxml.so|2140e0162f3d0e510ed7fc38562a41531dc6822d
 vendor/lib64/vendor.qti.data.factory@1.0.so|314b14978c4e058b141791533f79fc77cfb49fd7
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so|6553299b19ba8609051ce00b30f8c716ff9cc424
 
-# DRM - Widevine
-vendor/bin/hw/android.hardware.drm@1.0-service.widevine
-vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
-vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/libwvhidl.so
-vendor/lib64/libwvhidl.so
-vendor/lib64/mediadrm/libwvdrmengine.so
+# DRM - Widevine - from Z01R - WW_Z01R-WW_user_100.10.107.87_20200520-user-20200520
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine|589e5e684ebf42372575d78d97daba3b11c8702b
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|e3cb732c0bd519988100675edf385d947abf5f6c
+vendor/lib/mediadrm/libwvdrmengine.so|f6154290c2c682e624bd59616fd6a4a5f10b6df5
+vendor/lib64/mediadrm/libwvdrmengine.so|d23ca9491a7ebde623f238b87c5fe6dfb62a0cc7
+vendor/lib64/libwvhidl.so|74e8fd5901adc185eee38fa3eb80c961809e90fb
 
 # GPS - from beryllium - Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys
 vendor/bin/garden_app|15d74fbdbc44579e1766c9ac252cc5cca7c7584c
