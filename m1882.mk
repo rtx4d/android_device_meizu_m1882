@@ -280,7 +280,3 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/wifi,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
-
-# FOD specific of crDroid
-EXTRA_FOD_ANIMATIONS := true
-TARGET_HAS_FOD := true
