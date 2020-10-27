@@ -5,13 +5,13 @@
  *
  */
 
-#ifndef VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
-#define VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
+#ifndef VENDOR_PA_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
+#define VENDOR_PA_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
 
 #include <vendor/synaptics/fingerprint/interfaces/extensions/1.0/IStellerClientCallback.h>
 
 namespace vendor {
-namespace lineage {
+namespace pa {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
@@ -36,7 +36,7 @@ class StellerClientCallback : public IStellerClientCallback {
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
-}  // namespace lineage
+}  // namespace pa
 }  // namespace vendor
 
-#endif  // VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H
+#endif  // VENDOR_PA_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_STELLERCLIENTCALLBACK_H

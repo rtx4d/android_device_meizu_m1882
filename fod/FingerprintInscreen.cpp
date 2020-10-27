@@ -34,7 +34,7 @@
 #define FOD_SIZE 62 * 3
 
 namespace vendor {
-namespace lineage {
+namespace pa {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
@@ -168,5 +168,5 @@ void FingerprintInscreen::notifyHal(int32_t status, int32_t data) {
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
-}  // namespace lineage
+}  // namespace pa
 }  // namespace vendor
