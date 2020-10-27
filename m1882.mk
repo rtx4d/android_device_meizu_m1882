@@ -253,10 +253,6 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-service \
     thermal.sdm845
 
-# Touch
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.meizu_m1882
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service \
