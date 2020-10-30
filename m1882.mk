@@ -128,7 +128,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1 \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882
+    vendor.pa.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882
 
 # GPS
 PRODUCT_COPY_FILES += \
