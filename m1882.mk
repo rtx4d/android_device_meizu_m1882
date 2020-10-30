@@ -261,7 +261,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.meizu_m1882
+    vendor.pa.touch@1.0-service.meizu_m1882
 
 # USB
 PRODUCT_PACKAGES += \
