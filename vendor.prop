@@ -136,3 +136,7 @@ ro.build.shutdown_timeout=0
 sys.vendor.shutdown.waittime=500
 debug.choreographer.skipwarning=3
 debug.remote.config.disable=true
+
+# Camera
+ro.vendor.camera.no_vts=1
+persist.camera.expose.aux=1
