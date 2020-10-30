@@ -67,9 +67,6 @@ BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_LD_SHIM_LIBS += /vendor/lib/libmms_hal_vstab.so|/vendor/lib/libshim_camera.so
 TARGET_LD_SHIM_LIBS += /vendor/lib/libmms_warper_vstab.so|/vendor/lib/libshim_camera.so
 
-# Charger
-WITH_LINEAGE_CHARGER := false
-
 # Display
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_C2D_COMPOSITION := true
