@@ -289,5 +289,11 @@
     <!-- Remote server that can provide NTP responses. -->
     <string translatable="false" name="config_ntpServer">1.android.pool.ntp.org</string>
 
-
+    <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->
+        <item>1</item> <!-- COLOR_MODE_FULL_COLOR -->
+        <item>2</item> <!-- COLOR_MODE_PHOTO -->
+        <item>3</item> <!-- COLOR_MODE_ADAPTIVE -->
+    </integer-array>
 </resources>
