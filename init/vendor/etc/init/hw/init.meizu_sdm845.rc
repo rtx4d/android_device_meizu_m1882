@@ -130,11 +130,11 @@ on property:persist.sys.sf.native_mode=0
 
     # Set Full color/Boosted Color Mode
 on property:persist.sys.sf.native_mode=1
-  write /sys/class/meizu/lcm/display/lut 3
+  write /sys/class/meizu/lcm/display/lut 2
 
     # Set Photo/Saturated Color Mode
 on property:persist.sys.sf.native_mode=2
-  write /sys/class/meizu/lcm/display/lut 2
+  write /sys/class/meizu/lcm/display/lut 3
 
     # Set Adaptive Color Mode
 on property:persist.sys.sf.native_mode=3
