@@ -27,10 +27,6 @@ ro.bluetooth.emb_wp_mode=false
 ro.bluetooth.wipower=false
 bt.max.hfpclient.connections=1
 
-# Display
-# Set Photo Color Mode by default
-persist.sys.sf.native_mode=1
-
 # Graphics
 sdm.debug.disable_inline_rotator=1
 sdm.debug.disable_inline_rotator_secure=0
