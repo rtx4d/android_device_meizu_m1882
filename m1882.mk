@@ -292,5 +292,12 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# WiFi Display
+PRODUCT_PACKAGES += \
+    libdisplayconfig \
+    libdisplayconfig.vendor \
+    libqdMetaData \
+    libqdMetaData.system
+
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/wifi,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
