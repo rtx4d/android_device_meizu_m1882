@@ -199,7 +199,7 @@ PRODUCT_PACKAGES += \
 
 # ParanoidDoze
 PRODUCT_PACKAGES += \
-    MeizuParanoidDoze
+    ParanoidDoze
 
 # Power
 PRODUCT_PACKAGES += \
