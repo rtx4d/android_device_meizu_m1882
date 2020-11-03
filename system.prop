@@ -93,3 +93,7 @@ persist.vendor.qti.games.gt.prof=1
 mm.enable.qcom_parser=13623037
 persist.hvx.hwjpeg.enable=true
 persist.timed.enable=true
+
+# Meizu sensors
+ro.sensor.pickup=com.meizu.sensor.raise
+ro.sensor.proximity=true
