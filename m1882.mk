@@ -143,10 +143,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service
 
-# IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common
-
 # Input
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/keylayout,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout)
@@ -206,6 +202,7 @@ TARGET_COMMON_QTI_COMPONENTS := \
     av \
     bt \
     perf \
+    telephony \
     wfd
 
 # Radio
@@ -213,7 +210,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.2 \
     android.hardware.radio.config@1.0 \
     android.hardware.secure_element@1.0 \
-    ims-ext-common \
     libjson \
     librmnetctl \
     libxml2 \
@@ -239,10 +235,6 @@ PRODUCT_PACKAGES += \
     libsensorndkbridge \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
-
-# Telephony
-PRODUCT_PACKAGES += \
-    telephony-ext
 
 # Thermal
 PRODUCT_PACKAGES += \
