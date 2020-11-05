@@ -200,10 +200,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MeizuParanoidDoze
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service-qti
-
 # QTI
 TARGET_COMMON_QTI_COMPONENTS := \
     av \
