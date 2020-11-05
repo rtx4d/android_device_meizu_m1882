@@ -150,6 +150,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
          2: gestures only for back, home and overview -->
     <integer name="config_navBarInteractionMode">1</integer>
 
+    <!-- Boolean indicating whether 802.11r Fast BSS Transition is enabled on this platform -->
+    <bool translatable="false" name="config_wifi_fast_bss_transition_enabled">true</bool>
+
     <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
          on the headphone/microphone jack. When false use the older uevent framework. -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
