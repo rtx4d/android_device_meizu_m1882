@@ -201,6 +201,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MeizuParanoidDoze
 
+# Perf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/perfconfigstore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfconfigstore.xml
+
 # QTI
 TARGET_COMMON_QTI_COMPONENTS := \
     av \
