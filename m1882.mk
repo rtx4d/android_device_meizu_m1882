@@ -202,7 +202,7 @@ PRODUCT_PACKAGES += \
 
 # ParanoidDoze
 PRODUCT_PACKAGES += \
-    ParanoidDoze
+    MeizuParanoidDoze
 
 # Perf
 PRODUCT_COPY_FILES += \
