@@ -27,7 +27,6 @@
 
 #define HBM_ENABLE_PATH "/sys/class/meizu/lcm/display/hbm"
 #define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness"
-#define DC_LIGHT_PATH "sys/class/meizu/lcm/display/DC_Enable" // If Flyme 7.9.4.20A Daily only
 
 #define FOD_POS_X 149 * 3
 #define FOD_POS_Y 531 * 3
@@ -62,8 +61,7 @@ static T get(const std::string& path, const T& def) {
 }
 
 FingerprintInscreen::FingerprintInscreen()
-    : mDC{0}
-    , mHBM{0}
+    : mHBM{0}
     , mFingerPressed{false}
     {
     mFODModel = GetProperty("vendor.meizu.fp_vendor", "");
@@ -97,7 +95,6 @@ Return<void> FingerprintInscreen::onPress() {
     std::thread([this]() {
         int DelayBrightness = get(BRIGHTNESS_PATH, 0);
         std::this_thread::sleep_for(std::chrono::milliseconds(DelayBrightness / -5 + 219));
-        set(DC_LIGHT_PATH, 0);
         set(HBM_ENABLE_PATH, 1);
         std::this_thread::sleep_for(std::chrono::milliseconds(150));
         if (mFingerPressed) {
@@ -112,14 +109,12 @@ Return<void> FingerprintInscreen::onRelease() {
     notifyHal(NOTIFY_FINGER_REMOVED, 0);
     std::thread([this]() {
         std::this_thread::sleep_for(std::chrono::milliseconds(18));
-        set(DC_LIGHT_PATH, mDC);
         set(HBM_ENABLE_PATH, mHBM);
     }).detach();
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    mDC = get(DC_LIGHT_PATH, 0);
     mHBM = get(HBM_ENABLE_PATH, 0);
     return Void();
 }
