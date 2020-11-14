@@ -205,6 +205,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perfconfigstore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfconfigstore.xml
 
+# Power
+TARGET_USES_INTERACTION_BOOST := true
+TARGET_GESTURE_NODE := "/sys/class/meizu/tp/gesture_control"
+TARGET_TAP_TO_WAKE_NODE := "/dev/android.hardware.power@1.2/dt2w"
+TARGET_ONE_FINGER_SWIPE_LEFT_NODE := "/dev/android.hardware.power@1.2/slide_left"
+TARGET_ONE_FINGER_SWIPE_RIGHT_NODE := "/dev/android.hardware.power@1.2/slide_right"
+TARGET_ONE_FINGER_SWIPE_UP_NODE := "/dev/android.hardware.power@1.2/slide_up"
+TARGET_ONE_FINGER_SWIPE_DOWN_NODE := "/dev/android.hardware.power@1.2/slide_down"
+# TARGET_DRAW_C_NODE := "/dev/android.hardware.power@1.2/draw_c"
+TARGET_DRAW_V_NODE := "/dev/android.hardware.power@1.2/draw_v"
+
 # QTI
 TARGET_COMMON_QTI_COMPONENTS := \
     av \
