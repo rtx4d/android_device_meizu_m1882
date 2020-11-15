@@ -16,7 +16,7 @@ namespace pa {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_1 {
+namespace V1_0 {
 namespace implementation {
 
 StellerClientCallback::StellerClientCallback() {
@@ -33,7 +33,7 @@ Return<void> StellerClientCallback::hbmCtrl(int32_t ret) {
 }
 
 }  // namespace implementation
-}  // namespace V1_1
+}  // namespace V1_0
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics

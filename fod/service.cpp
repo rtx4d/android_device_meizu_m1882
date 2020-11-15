@@ -6,7 +6,7 @@
  *
  */
 
-#define LOG_TAG "vendor.pa.biometrics.fingerprint.inscreen@1.1-service.meizu_m1882"
+#define LOG_TAG "vendor.pa.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
@@ -16,8 +16,8 @@
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-using vendor::pa::biometrics::fingerprint::inscreen::V1_1::IFingerprintInscreen;
-using vendor::pa::biometrics::fingerprint::inscreen::V1_1::implementation::FingerprintInscreen;
+using vendor::pa::biometrics::fingerprint::inscreen::V1_0::IFingerprintInscreen;
+using vendor::pa::biometrics::fingerprint::inscreen::V1_0::implementation::FingerprintInscreen;
 
 using android::OK;
 using android::status_t;
