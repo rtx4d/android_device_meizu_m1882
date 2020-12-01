@@ -59,5 +59,6 @@ void property_override_dual(char const system_prop[],
 void vendor_load_properties()
 {
     property_override_dual("ro.build.type", "ro.vendor.build.type", "user");
+    property_override_dual("ro.build.tags", "ro.vendor.build.tags", "release-keys");
     property_override("ro.boot.verifiedbootstate", "green");
 }
