@@ -97,3 +97,6 @@ persist.timed.enable=true
 # Meizu sensors
 ro.sensor.pickup=com.meizu.sensor.raise
 ro.sensor.proximity=true
+
+# FRP Partition
+ro.frp.pst=/dev/block/platform/soc/1d84000.ufshc/by-name/frp
