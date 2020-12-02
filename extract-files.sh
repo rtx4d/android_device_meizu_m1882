@@ -69,6 +69,10 @@ function blob_fixup() {
     vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so)
         sed -i "s|libbase.so|libbv28.so|g" "${2}"
         ;;
+
+    vendor/lib/hw/camera.qcom.so)
+        sed -i "s|libssc.so|libSSc.so|g" "${2}"
+        ;;
     esac
 }
 
