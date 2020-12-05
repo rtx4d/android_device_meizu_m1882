@@ -1025,6 +1025,9 @@ vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 
+# Protobuf - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/lib/libprotobuf-cpp-full-vendor-3.9.1.so|df4adf12c0dff2fcea799022fb65d7971e40267c
+vendor/lib64/libprotobuf-cpp-full-vendor-3.9.1.so|4d2bd210c601ba69fa7d5f0f2ab491da362ebef1
 
 # Bluetooth (aptX) - from crosshatch - QP1A.190711.020
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
