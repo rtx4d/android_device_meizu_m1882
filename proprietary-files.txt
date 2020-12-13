@@ -1106,12 +1106,13 @@ vendor/lib64/libxml.so|2140e0162f3d0e510ed7fc38562a41531dc6822d
 vendor/lib64/vendor.qti.data.factory@1.0.so|314b14978c4e058b141791533f79fc77cfb49fd7
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so|6553299b19ba8609051ce00b30f8c716ff9cc424
 
-# DRM - Widevine - from Z01R - WW_Z01R-WW_user_100.10.107.87_20200520-user-20200520
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine|589e5e684ebf42372575d78d97daba3b11c8702b
-vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|e3cb732c0bd519988100675edf385d947abf5f6c
-vendor/lib/mediadrm/libwvdrmengine.so|f6154290c2c682e624bd59616fd6a4a5f10b6df5
-vendor/lib64/mediadrm/libwvdrmengine.so|d23ca9491a7ebde623f238b87c5fe6dfb62a0cc7
-vendor/lib64/libwvhidl.so|74e8fd5901adc185eee38fa3eb80c961809e90fb
+# DRM - Widevine - from OnePlus8Pro - OnePlus/OnePlus8Pro/OnePlus8Pro:11/RP1A.201005.001/2011190108:user/release-keys
+-vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
+vendor/bin/hw/android.hardware.drm@1.3-service.widevine|5aa424e97e92659be37cb2dad0de363aa6ef857f
+vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|c35e1a6f9a6faff19064a81e07c4be82ceaf4bb5
+vendor/lib/mediadrm/libwvdrmengine.so|edfddb82e327b36dd6e310c6e7d56e42b1c4285e
+vendor/lib64/mediadrm/libwvdrmengine.so|ba68955bfe7ecb950426a1607a472fa381740c6b
+vendor/lib64/libwvhidl.so|232637b49d6035f3a3eeae4d133c56388ad37b27
 
 # GPS - from beryllium - Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys
 vendor/bin/garden_app|15d74fbdbc44579e1766c9ac252cc5cca7c7584c
