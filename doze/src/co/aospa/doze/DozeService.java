@@ -42,21 +42,12 @@ public class DozeService extends Service {
 
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
-    private boolean mInPickupSensor = false;
-    private boolean mInProximitySensor = false;
-
     @Override
     public void onCreate() {
         if (DEBUG) Log.d(TAG, "Creating service");
-        if (DozeUtils.isPickUpEnabled(this)) {
-            mPickupSensor = new PickupSensor(this);
-            mInPickupSensor = true;
-        }
-        if (DozeUtils.isHandwaveGestureEnabled(this) ||
-                DozeUtils.isPocketGestureEnabled(this)) {
-            mProximitySensor = new ProximitySensor(this);
-            mInProximitySensor = true;
-        }
+        super.onCreate();
+        mPickupSensor = new PickupSensor(this);
+        mProximitySensor = new ProximitySensor(this);
         IntentFilter screenStateFilter = new IntentFilter();
         screenStateFilter.addAction(Intent.ACTION_SCREEN_ON);
         screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -74,12 +65,8 @@ public class DozeService extends Service {
         if (DEBUG) Log.d(TAG, "Destroying service");
         super.onDestroy();
         this.unregisterReceiver(mScreenStateReceiver);
-        if (mInPickupSensor) {
-            mPickupSensor.disable();
-        }
-        if (mInProximitySensor) {
-            mProximitySensor.disable();
-        }
+        mPickupSensor.disable();
+        mProximitySensor.disable();
     }
 
     @Override
@@ -89,16 +76,9 @@ public class DozeService extends Service {
 
     private void onDisplayOn() {
         if (DEBUG) Log.d(TAG, "Display on");
-        if (DozeUtils.isPickUpEnabled(this)) {
-            mPickupSensor.disable();
-        }
-        if (DozeUtils.isHandwaveGestureEnabled(this) ||
-                DozeUtils.isPocketGestureEnabled(this)) {
-            mProximitySensor.disable();
-        }
-        if (DozeUtils.isAlwaysOnEnabled(this)) {
-            mHandler.removeCallbacksAndMessages(null);
-        }
+        mPickupSensor.disable();
+        mProximitySensor.disable();
+        mHandler.removeCallbacksAndMessages(null);
     }
 
     private void onDisplayOff() {
