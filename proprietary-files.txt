@@ -821,9 +821,19 @@ vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
-# Power
-vendor/lib/hw/power.qcom.so
-vendor/lib64/hw/power.qcom.so
+# Power - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/lib/hw/power.qcom.so|ad4c08f36aa361264a14a827729a69ac43f27178
+vendor/lib64/hw/power.qcom.so|70586129997818010368db285caf6537aa571edc
+
+# ESE-Powermanager - from LA.UM.9.8.r1-02700-SDM710.0
+vendor/bin/hw/vendor.qti.esepowermanager@1.1-service|0de9474912b1206cfe17459afca9ebb28bdd2468
+vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc|3c024c7135ec3dd8658624509ee61396a74f1ede
+vendor/lib/hw/vendor.qti.esepowermanager@1.1-impl.so|7f5adb335d12659d76fa13318b635e30ee67da6e
+vendor/lib/vendor.qti.esepowermanager@1.0.so|d94fecf1aaca02a2d284ef9b08c4dce9524cd09f
+vendor/lib/vendor.qti.esepowermanager@1.1.so|a4a91c715665496f44ca27f046865d4ec5c99dfb
+vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so|17f648402c874e4f981caadd91438a525089e35d
+vendor/lib64/vendor.qti.esepowermanager@1.0.so|956996730bcb6207c06f37b156bfd9d24db43034
+vendor/lib64/vendor.qti.esepowermanager@1.1.so|8b97297a7d728e37eb7c4da3d0cb8509911fea3b
 
 # QMI
 vendor/bin/irsc_util
