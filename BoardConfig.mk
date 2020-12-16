@@ -45,7 +45,7 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_HEADER_SOURCE := kernel/meizu/sdm845
-TARGET_KERNEL_CONFIG := sdm845-perf_defconfig
+TARGET_KERNEL_CONFIG := ../sdm845-perf_defconfig
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
