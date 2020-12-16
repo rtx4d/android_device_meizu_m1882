@@ -107,6 +107,7 @@ Return<void> FingerprintInscreen::onPress() {
 Return<void> FingerprintInscreen::onRelease() {
     mFingerPressed = false;
     notifyHal(NOTIFY_FINGER_REMOVED, 0);
+    mHBM = 0;
     std::thread([this]() {
         std::this_thread::sleep_for(std::chrono::milliseconds(18));
         set(HBM_ENABLE_PATH, mHBM);
@@ -115,7 +116,6 @@ Return<void> FingerprintInscreen::onRelease() {
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    mHBM = get(HBM_ENABLE_PATH, 0);
     return Void();
 }
 
