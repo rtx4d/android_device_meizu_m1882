@@ -361,4 +361,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <item>2</item> <!-- COLOR_MODE_PHOTO -->
         <item>3</item> <!-- COLOR_MODE_ADAPTIVE -->
     </integer-array>
+    
+    <!-- Keep chosen default camera app pinned in memory for faster launching -->
+    <bool name="config_pinnerCameraApp">true</bool>
 </resources>
