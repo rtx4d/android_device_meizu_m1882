@@ -12,7 +12,7 @@
 #include <android-base/logging.h>
 
 namespace vendor {
-namespace pa {
+namespace aospa {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
@@ -37,5 +37,5 @@ Return<void> StellerClientCallback::hbmCtrl(int32_t ret) {
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
-}  // namespace pa
+}  // namespace aospa
 }  // namespace vendor

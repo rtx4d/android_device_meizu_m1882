@@ -1,0 +1,6 @@
+service vendor.fingerprint-inscreen-1-0-meizu_m1882 /vendor/bin/hw/vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.meizu_m1882
+    interface vendor.aospa.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
+    class hal
+    user system
+    group system
+    shutdown critical
