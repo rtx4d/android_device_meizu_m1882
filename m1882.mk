@@ -225,7 +225,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     av \
     bt \
     perf \
-    wfd
+    wfd \
+    media
 
 # Radio
 PRODUCT_PACKAGES += \
